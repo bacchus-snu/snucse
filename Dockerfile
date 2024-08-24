@@ -15,6 +15,6 @@ FROM caddy:2
 WORKDIR /app
 
 COPY --from=builder /app/dist/ /app/
+COPY Caddyfile /etc/caddy/Caddyfile
 
 EXPOSE 8080
-CMD ["/usr/bin/caddy", "file-server", "--access-log", "--listen", ":8080"]

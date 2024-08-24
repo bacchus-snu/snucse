@@ -1,0 +1,7 @@
+:8080 {
+  root * /app
+  encode gzip zstd
+  try_files {path} /index.html
+  file_server
+  log
+}
