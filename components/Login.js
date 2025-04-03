@@ -32,7 +32,7 @@ const Login = React.createClass({
             <p>
               id.snucse.org에서 학부생 그룹에 추가된 후, 아래의 가입
               신청하기에서 id.snucse와 동일한 아이디로 가입 신청하시기 바랍니다.
-              "가입에 실패하였습니다"라는 오류가 뜰 수 있으나 무시하고 로그인
+              &quot;가입에 실패하였습니다	&quot;라는 오류가 뜰 수 있으나 무시하고 로그인
               진행해주시기 바랍니다.
             </p>
             <section id="login-box-footer">
