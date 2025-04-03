@@ -29,6 +29,12 @@ const Login = React.createClass({
           <div id="login-box">
             <h3 id="login-box-header">Welcome! :D</h3>
             <LoginForm/>
+            <p>
+              id.snucse.org에서 학부생 그룹에 추가된 후, 아래의 가입
+              신청하기에서 id.snucse와 동일한 아이디로 가입 신청하시기 바랍니다.
+              "가입에 실패하였습니다"라는 오류가 뜰 수 있으나 무시하고 로그인
+              진행해주시기 바랍니다.
+            </p>
             <section id="login-box-footer">
               <a className="login-box-footer-link" href="https://id.snucse.org/verify" target="_blank" rel="noopener noreferrer">가입 신청하기</a>
               <a className="login-box-footer-link" href="https://id.snucse.org/password" target="_blank" rel="noopener noreferrer">비밀번호 찾기</a>
