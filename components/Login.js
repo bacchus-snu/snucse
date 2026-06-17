@@ -38,7 +38,7 @@ const Login = React.createClass({
             <section id="login-box-footer">
               <a className="login-box-footer-link" href="https://www.snucse.org/sign-up" target="_blank" rel="noopener noreferrer">가입 신청하기</a>
               <a className="login-box-footer-link" href="https://id.snucse.org/password" target="_blank" rel="noopener noreferrer">비밀번호 찾기</a>
-              <a className="login-box-footer-link" href="https://id.snucse.org/Privacy.aspx" target="_blank" rel="noopener noreferrer">개인정보 처리방침</a>
+              <a className="login-box-footer-link" href="https://www.snu.ac.kr/personal_information" target="_blank" rel="noopener noreferrer">개인정보 처리방침</a>
             </section>
           </div>
         </div>
