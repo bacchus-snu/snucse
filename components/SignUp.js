@@ -113,7 +113,7 @@ const SignUpForm = connectModals(React.createClass({
     }
 
     if (!this.privacy.checked) {
-      this.props.alertModal('알림', '개인정보 수집, 이용 및 제공에 동의해주세요.', () => {
+      this.props.alertModal('알림', '개인정보 수집, 이용 및 처리에 동의해주세요.', () => {
         this.privacy.focus();
       });
       return null;
@@ -155,7 +155,7 @@ const SignUpForm = connectModals(React.createClass({
         <div className="signup-form-group">
           <label className="signup-form-label" htmlFor="signup-privacy-input">개인정보 수집, 이용 동의</label>
           <div className="signup-form-box">
-            {this.renderInput('privacy', '', 'checkbox')} <a href="https://www.snu.ac.kr/personal_information" target="_blank" rel="noopener noreferrer">개인정보 수집, 이용 및 제공</a>에 동의합니다.
+            {this.renderInput('privacy', '', 'checkbox')} <a href="/privacy-consent" target="_blank" rel="noopener noreferrer">개인정보 수집, 이용 및 처리</a>에 동의합니다.
           </div>
         </div>
         <div id="signup-button-container">

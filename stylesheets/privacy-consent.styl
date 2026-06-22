@@ -1,0 +1,170 @@
+@import "mixin.styl"
+@import "variable.styl"
+
+#privacy-consent-background
+  min-height 100vh
+  padding 36px 20px
+  background header-color
+  font-family 'Roboto', 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', sans-serif
+
+#privacy-consent-page
+  width 780px
+  max-width 100%
+  margin 0 auto
+
+#privacy-consent-title
+  margin 0 0 10px
+  color background-color
+  font-size 28px
+  line-height 30px
+  font-weight 400
+
+#privacy-consent-panel
+  background-color box-background-color
+  border 1px solid box-border-color
+  padding 24px 28px 28px
+
+#privacy-consent-header
+  margin-bottom 22px
+  padding-bottom 18px
+  border-bottom 1px solid box-border-color
+
+  h2
+    margin 0 0 12px
+    color text-color
+    font-size 22px
+    line-height 1.4
+    font-weight 600
+
+  p
+    margin 0
+    color input-text-color
+
+.privacy-consent-body
+  h3
+    margin 0 0 10px
+    color text-color
+    font-size 16px
+    font-weight 700
+
+  p
+    margin 0 0 14px
+
+.privacy-consent-table
+  width 100%
+  margin 0 0 20px
+  border-collapse collapse
+  table-layout fixed
+  background-color article-background-color
+  border 1px solid box-border-color
+
+  th,
+  td
+    border-bottom 1px solid box-border-color
+    padding 11px 12px
+    vertical-align middle
+
+  th
+    background-color tag-item-color
+    color text-color
+    font-weight 700
+    text-align left
+
+  td
+    color text-color
+
+  th:nth-child(1),
+  td:nth-child(1)
+    width 34%
+
+  th:nth-child(2),
+  td:nth-child(2)
+    width 44%
+
+  th:nth-child(3),
+  td:nth-child(3)
+    width 22%
+
+  tr:last-child td
+    border-bottom 0
+
+  p
+    margin 0 0 6px
+
+  p:last-child
+    margin-bottom 0
+
+.privacy-consent-note
+  color input-text-color
+
+.privacy-consent-summary
+  margin 0 0 16px
+  padding 12px 14px
+  background-color article-background-color
+  border-left 4px solid header-color-2
+
+  dt
+    float left
+    clear left
+    width 80px
+    color text-color
+    font-weight 700
+
+  dd
+    margin 0 0 6px 90px
+    color input-text-color
+
+  dd:last-child
+    margin-bottom 0
+
+.privacy-consent-summary:after
+  clearfix()
+
+#privacy-consent-actions
+  padding 18px 0 0
+  text-align center
+
+  a
+    display inline-block
+    min-width 190px
+    padding 9px 18px
+    background header-color-2
+    border 1px solid header-color-1
+    border-radius 4px
+    color background-color
+    font-size 14px
+    line-height 1.5
+    font-weight 700
+    text-align center
+
+  a:hover,
+  a:focus
+    background header-color-1
+    color background-color
+    text-decoration none
+
+@media (max-width: 768px)
+  #privacy-consent-background
+    padding 12px 10px
+
+  #privacy-consent-panel
+    padding 18px 14px 20px
+
+  #privacy-consent-header
+    h2
+      font-size 19px
+
+  .privacy-consent-table
+    table-layout auto
+
+    th,
+    td
+      padding 9px 7px
+
+  .privacy-consent-summary
+    dt
+      float none
+      width auto
+
+    dd
+      margin-left 0

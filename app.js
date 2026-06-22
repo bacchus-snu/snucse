@@ -29,6 +29,7 @@ import {
   ClassManager,
   Login,
   SignUp,
+  PrivacyConsent,
   Settings,
   TimeManager
 } from './components';
@@ -78,6 +79,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/login" component={Login}/>
           <Route path="/sign-up" component={SignUp}/>
+          <Route path="/privacy-consent" component={PrivacyConsent}/>
           <Route path="/" component={MenuRoute}/>
         </Switch>
       </ConnectedRouter>

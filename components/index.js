@@ -14,6 +14,7 @@ import SearchResult from './SearchResultContainer';
 import ClassManager from './ClassManager';
 import Login from './Login';
 import SignUp from './SignUp';
+import PrivacyConsent from './PrivacyConsent';
 import Settings from './Settings';
 import TimeManager from './TimeManager';
 
@@ -34,6 +35,7 @@ export {
   ClassManager,
   Login,
   SignUp,
+  PrivacyConsent,
   Settings,
   TimeManager
 };
