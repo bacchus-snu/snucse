@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import TagForm from './TagForm';
 
-const TagFormContainer = React.createClass({
+const TagFormContainer = createReactClass({
 
   propTypes: {
     id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),

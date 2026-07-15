@@ -1,11 +1,12 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 
 import {SearchResultTagBox} from '../boxes';
 import {ArticleSearchResult, CommentSearchResult, ProfileSearchResult} from './SearchResultItems';
 import EmptyResultView from './EmptyResultView';
 
-const OverallSearchResultView = React.createClass({
+const OverallSearchResultView = createReactClass({
   render() {
     const {query, result} = this.props;
     const articleResults = result.articles.data.map(article => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {loadProfileDetail, clearProfileDetail} from '../actions/dispatchers';
@@ -6,7 +7,7 @@ import {ProfileAdminTransferContainer, ProfileEditBoxContainer} from './boxes';
 
 import '../stylesheets/profile.styl';
 
-const ProfileAdmin = React.createClass({
+const ProfileAdmin = createReactClass({
   componentDidMount() {
     this.props.loadProfileDetail(this.props.match.params.id);
   },

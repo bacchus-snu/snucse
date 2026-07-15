@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 const editorModes = [
   {type: 'text', description: '텍스트'},
@@ -6,7 +7,7 @@ const editorModes = [
   {type: 'html', description: 'HTML'}
 ];
 
-const EditorModeForm = React.createClass({
+const EditorModeForm = createReactClass({
   getInitialState() {
     return {
       mode: editorModes[0].type

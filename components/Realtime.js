@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 /*
@@ -6,7 +7,7 @@ import {connect} from 'react-redux';
  * - from
  */
 
-const Realtime = React.createClass({
+const Realtime = createReactClass({
   render() {
     const {timestamp, from} = this.props;
     return <div className="time">{from.from(timestamp)}</div>;

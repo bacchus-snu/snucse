@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import ActivityListItem from './ActivityListItem';
 
-const ActivityList = React.createClass({
+const ActivityList = createReactClass({
 
   propTypes: {
     loadActivity: React.PropTypes.func,

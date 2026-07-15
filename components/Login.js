@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import {push} from 'connected-react-router';
 
 import {DataCon, Url, genRefCallback} from '../utils';
 import {alertModal} from '../actions/dispatchers';
@@ -9,7 +10,7 @@ import '../stylesheets/modalbox.styl';
 
 import '../stylesheets/login.styl';
 
-const Login = React.createClass({
+const Login = createReactClass({
   render() {
     const modal = this.props.modalEnabled ? <Modal/> : null;
     return (
@@ -48,7 +49,7 @@ const Login = React.createClass({
   }
 });
 
-const LoginFormBase = React.createClass({
+const LoginFormBase = createReactClass({
   handleLogin(event) {
     event.preventDefault();
     const username = this.id.value.trim();

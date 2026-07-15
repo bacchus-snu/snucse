@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import {push} from 'connected-react-router';
 
 import {genRefCallback, connectModals} from '../../../utils';
 
-const SearchForm = React.createClass({
+const SearchForm = createReactClass({
   handleSubmit(event) {
     event.preventDefault();
     // this.props.onSearch(this._content.value);

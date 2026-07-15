@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import TagItem from './TagItem';
 
-const TagItemContainer = React.createClass({
+const TagItemContainer = createReactClass({
 
   propTypes: {
     id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),

@@ -1,9 +1,10 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 // 컴포넌트 혼자 쓰여도 됨
 
 import '../../stylesheets/to-top-button.styl';
 
-const ToTopButton = React.createClass({
+const ToTopButton = createReactClass({
 
   getInitialState() {
     return {

@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import '../../../stylesheets/comment-box.styl';
 import CommentList from './CommentList';
 import CommentFormContainer from './CommentFormContainer';
 
-const CommentBox = React.createClass({
+const CommentBox = createReactClass({
 
   propTypes: {
     id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]).isRequired,

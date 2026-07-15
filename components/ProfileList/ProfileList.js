@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -7,7 +8,7 @@ import {UserLevel} from '../../utils';
 
 import '../../stylesheets/profile-list.styl';
 
-const ProfileList = React.createClass({
+const ProfileList = createReactClass({
   componentDidMount() {
     if (this.props.userLevel === UserLevel.REGULAR) {
       this.props.loadAllProfiles();

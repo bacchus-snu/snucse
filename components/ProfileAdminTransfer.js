@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import {ProfileAdminTransferBox} from './boxes';
 
-const ProfileAdminTransfer = React.createClass({
+const ProfileAdminTransfer = createReactClass({
   render() {
     return <ProfileAdminTransferBox id={this.props.match.params.id}/>;
   }

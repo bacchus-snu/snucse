@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import {push} from 'connected-react-router';
 import classnames from 'classnames';
 
 import {DataCon, Url, genRefCallback} from '../../utils';
@@ -61,7 +62,7 @@ const mapping = {
   update: '수정'
 };
 
-const MainCategoryItem = React.createClass({
+const MainCategoryItem = createReactClass({
 
   propTypes: {
     onClickMainCategory: React.PropTypes.func.isRequired,
@@ -89,7 +90,7 @@ const MainCategoryItem = React.createClass({
   }
 });
 
-const SubCategoryItem = React.createClass({
+const SubCategoryItem = createReactClass({
 
   propTypes: {
     onClickSubCategory: React.PropTypes.func.isRequired,
@@ -117,7 +118,7 @@ const SubCategoryItem = React.createClass({
   }
 });
 
-const CandidateProfileItem = React.createClass({
+const CandidateProfileItem = createReactClass({
 
   propTypes: {
     onClickCandidateProfile: React.PropTypes.func,
@@ -137,7 +138,7 @@ const CandidateProfileItem = React.createClass({
   }
 });
 
-const ActivityFilter = React.createClass({
+const ActivityFilter = createReactClass({
 
   propTypes: {
     candidateProfiles: React.PropTypes.array,

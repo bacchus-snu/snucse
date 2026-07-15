@@ -1,11 +1,12 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {loadComments, loadReplies, setLastComment, writeComment, modifyFoldComments, editComment, deleteComment} from '../../../actions/dispatchers';
 import {CommentRecommendBox} from '../';
 import CommentBox from './CommentBox';
 
-const ArticleCommentBox = React.createClass({
+const ArticleCommentBox = createReactClass({
 
   propTypes: {
     articleId: React.PropTypes.number.isRequired,

@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 
@@ -6,7 +7,7 @@ import '../../stylesheets/taginfo.styl';
 import Realtime from '../Realtime';
 import {RelatedTagBox} from '../boxes';
 
-const TagEmptyView = React.createClass({
+const TagEmptyView = createReactClass({
   render() {
     return (
       <p>
@@ -16,7 +17,7 @@ const TagEmptyView = React.createClass({
   }
 });
 
-const TagView = React.createClass({
+const TagView = createReactClass({
   render() {
     const {creator, articles, profiles, relatedTags} = this.props.tag;
     const articlesView = articles.length === 0 ?
@@ -77,7 +78,7 @@ const TagView = React.createClass({
   }
 });
 
-const TagViewWrapper = React.createClass({
+const TagViewWrapper = createReactClass({
   render() {
     const tag = this.props.tag;
     let view;

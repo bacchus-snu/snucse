@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-const EmptyResultView = React.createClass({
+const EmptyResultView = createReactClass({
   render() {
     return (
       <p className="search-result-empty">

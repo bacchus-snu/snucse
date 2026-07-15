@@ -1,8 +1,8 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import moment from 'moment';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import InnerHTML from 'dangerously-set-inner-html';
 
 import Realtime from '../Realtime';
 import {Url, DataCon} from '../../utils';
@@ -10,7 +10,7 @@ import {WrappedFileBox, DelEditBox, ArticleTagBox, ArticleRecommendBox, ArticleC
 
 import '../../stylesheets/article.styl';
 
-const ArticleItem = React.createClass({
+const ArticleItem = createReactClass({
   handleArticleDelete(articleId) {
     const url = Url.getUrl(`/articles/${articleId}`);
     DataCon.postDataToServer(url, 'DELETE')
@@ -40,9 +40,7 @@ const ArticleItem = React.createClass({
           <div className="article-content-container">
             <WrappedFileBox files={article.files}/>
             <DelEditBox mine={mine} articleId={article.id} onArticleDelete={this.handleArticleDelete}/>
-            <div className="article-content">
-              <InnerHTML html={article.renderedContent}/>
-            </div>
+            <div className="article-content" dangerouslySetInnerHTML={{__html: article.renderedContent}}/>
           </div>
         </div>
         <ArticleRecommendBox articleId={article.id} count={article.recommendationCount}/>

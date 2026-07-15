@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import '../../stylesheets/activity.styl';
@@ -8,7 +9,7 @@ import ActivityFilter from './ActivityFilter';
 import ActivityList from './ActivityList';
 import ActivityPageNavigation from './ActivityPageNavigation';
 
-const ActivityContainer = React.createClass({
+const ActivityContainer = createReactClass({
 
   propTypes: {
     query: React.PropTypes.object

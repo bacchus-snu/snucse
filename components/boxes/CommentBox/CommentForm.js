@@ -1,9 +1,10 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import classnames from 'classnames';
 
 import {genRefCallback} from '../../../utils';
 
-const CommentForm = React.createClass({
+const CommentForm = createReactClass({
 
   propTypes: {
     onWrite: React.PropTypes.func.isRequired,

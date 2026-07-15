@@ -1,16 +1,16 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Measure from 'react-measure';
 import moment from 'moment';
 import classnames from 'classnames';
-import BrowserDetection from 'react-browser-detection';
 import {iframeResizer} from 'iframe-resizer';
 
 import Realtime from '../Realtime';
 import {WrappedFileBox, DelEditBox, ArticleTagBox, ArticleRecommendBox, ArticleCommentBox} from '../boxes';
 
-const FeedArticle = React.createClass({
+const FeedArticle = createReactClass({
   bindIframeResizer(iframe) {
     function resizedCallback(args) {
       // args: {iframe,height,width,type}
@@ -106,11 +106,7 @@ const FeedArticle = React.createClass({
           />
       </div>
     );
-    const contentViewHandler = {
-      ie: () => iframeNotSupportContentView,
-      edge: () => iframeNotSupportContentView,
-      default: () => iframeSupportContentView
-    };
+    const isLegacyMicrosoftBrowser = /MSIE|Trident|Edge\//.test(window.navigator.userAgent);
     return (
       <li className="feed-article">
         <small className="article-date" title={date.format('LLL')}>
@@ -127,9 +123,7 @@ const FeedArticle = React.createClass({
             <WrappedFileBox files={article.files}/>
             <DelEditBox mine={mine} articleId={article.id} onArticleDelete={this.handleArticleDelete}/>
             <Measure onMeasure={this.handleMeasure}>
-              <BrowserDetection once={false}>
-                {contentViewHandler}
-              </BrowserDetection>
+              {isLegacyMicrosoftBrowser ? iframeNotSupportContentView : iframeSupportContentView}
             </Measure>
             {ellipsis}
           </div>

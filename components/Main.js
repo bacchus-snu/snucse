@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import Feed from './Feed';
 
-const Main = React.createClass({
+const Main = createReactClass({
   render() {
     return (
       <Feed/>

@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import {push} from 'connected-react-router';
 
 import {DataCon, Url, genRefCallback, connectModals} from '../../utils';
 import {updateFollowingList, alertModal} from '../../actions/dispatchers';
@@ -10,7 +11,7 @@ import '../../stylesheets/profile-new.styl';
 
 const reg = /^[a-zA-Z_][a-zA-Z0-9_]+$/;
 
-const ProfileMakeForm = React.createClass({
+const ProfileMakeForm = createReactClass({
   getInitialState() {
     return {
       renderingMode: 'md',

@@ -1,10 +1,11 @@
 import React from 'react';
-import SimpleMDE from 'simplemde';
+import createReactClass from 'create-react-class';
+import EasyMDE from 'easymde';
 
-import 'simplemde/dist/simplemde.min.css';
+import 'easymde/dist/easymde.min.css';
 import '../../stylesheets/markdown-editor.styl';
 
-const MarkdownEditor = React.createClass({
+const MarkdownEditor = createReactClass({
   getInitialState() {
     return {
       value: ''
@@ -34,7 +35,7 @@ const MarkdownEditor = React.createClass({
       }
       return;
     }
-    const simplemde = this.simplemde = new SimpleMDE({
+    const simplemde = this.simplemde = new EasyMDE({
       element: ref,
       status: false,
       spellChecker: false,

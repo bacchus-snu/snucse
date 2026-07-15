@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import {Client} from '../../utils';
 import MarkdownEditor from './MarkdownEditor';
 import EditorModeForm from './EditorModeForm';
 
-const Editor = React.createClass({
+const Editor = createReactClass({
   getInitialState() {
     return {
       mode: 'md',

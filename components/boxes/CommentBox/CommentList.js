@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import CommentItemContainer from './CommentItemContainer';
 
 const FOLD_COMMENT_LIMIT = 1;
 
-const CommentList = React.createClass({
+const CommentList = createReactClass({
 
   propTypes: {
     id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]).isRequired,

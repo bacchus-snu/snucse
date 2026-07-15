@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import queryString from 'query-string';
 
-const TagItem = React.createClass({
+const TagItem = createReactClass({
 
   propTypes: {
     accessible: React.PropTypes.bool,

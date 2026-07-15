@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import '../stylesheets/privacy-consent.styl';
 
-const PrivacyConsent = React.createClass({
+const PrivacyConsent = createReactClass({
   render() {
     return (
       <div id="privacy-consent-background">

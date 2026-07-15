@@ -1,7 +1,8 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 
-const SearchResultLinks = React.createClass({
+const SearchResultLinks = createReactClass({
   renderLink(category, query, page, ch = page) {
     return <Link className="search-link" to={`/search?category=${category}&query=${query}&page=${page}`} key={`search-link-${page}`}>[{ch}]</Link>;
   },

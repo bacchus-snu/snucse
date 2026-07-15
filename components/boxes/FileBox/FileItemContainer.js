@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import FileItem from './FileItem';
 
@@ -13,13 +14,13 @@ import FileItem from './FileItem';
  * - alive
  */
 
-const FileEditBox = React.createClass({
+const FileEditBox = createReactClass({
   render() {
     return <button className="file-edit-button" type="button" onClick={this.props.onClick}>{this.props.alive ? '제거' : '복구'}</button>;
   }
 });
 
-const FileItemContainer = React.createClass({
+const FileItemContainer = createReactClass({
   handleEditClick() {
     this.props.onAliveChange(this.props.file.id);
   },

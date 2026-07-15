@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import TagCloudContainer from './TagCloudContainer';
 
-const TagCloud = React.createClass({
+const TagCloud = createReactClass({
   render() {
     return <TagCloudContainer/>;
   }

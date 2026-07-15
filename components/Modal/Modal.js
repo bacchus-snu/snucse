@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
 
@@ -6,7 +7,7 @@ import {cancelModal} from '../../actions/dispatchers';
 
 // import style
 
-const Modal = React.createClass({
+const Modal = createReactClass({
   handleClickWrapper() {
     if (this.props.closable) {
       this.props.cancelModal();

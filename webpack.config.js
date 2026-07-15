@@ -1,83 +1,58 @@
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WebpackShellPlugin = require('webpack-shell-plugin');
-
-const stylesheetDir = `${__dirname}/stylesheets`;
-const resetCss = `${stylesheetDir}/reset.css`;
-const markdownStyl = `${stylesheetDir}/markdown.styl`;
-const outStylesheetDir = `${__dirname}/dist/static`;
-
-// Always-enabled plugins
-const plugins = [
-  new ExtractTextPlugin({
-    filename: 'static/application.css'
-  }),
-  new CopyWebpackPlugin([{from: '*.html'}]),
-  new WebpackShellPlugin({
-    onBuildEnd: [
-      `mkdir -p ${outStylesheetDir}`,
-      `stylus -I ${stylesheetDir} -o ${outStylesheetDir} ${markdownStyl}`,
-      `cp ${resetCss} ${outStylesheetDir}`
-    ]
-  })
-];
-
-// Production-only plugins
-const productionPlugins = [
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify('production')
-    }
-  })
-];
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './app.js',
-
+  entry: {
+    application: './app.js',
+    markdown: './stylesheets/markdown.styl'
+  },
   output: {
-    path: `${__dirname}/dist`,
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'static/application.js'
+    filename: 'static/[name].js'
   },
   devtool: 'source-map',
-  plugins: process.env.NODE_ENV === 'production' ? plugins.concat(productionPlugins) : plugins,
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'static/[name].css'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {from: '*.html', context: __dirname, to: '[name][ext]'},
+        {from: 'stylesheets/reset.css', to: 'static/reset.css'}
+      ]
+    })
+  ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.styl$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            'stylus-loader'
-          ]
-        })
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader']
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['es2015', 'stage-3', 'react']
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              ['@babel/preset-react', {runtime: 'classic'}]
+            ]
+          }
         }
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'xo-loader'
       }
     ]
   },
   devServer: {
-    contentBase: 'dist/',
+    static: {
+      directory: path.join(__dirname, 'dist')
+    },
     host: '0.0.0.0',
     port: 12321,
     historyApiFallback: true,

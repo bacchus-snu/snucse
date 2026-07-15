@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {UserLevel} from '../../../utils';
@@ -10,7 +11,7 @@ import {
 } from '../../../actions/dispatchers';
 import TagBox from './TagBox';
 
-const ArticleTagBox = React.createClass({
+const ArticleTagBox = createReactClass({
   propTypes: {
     articleId: React.PropTypes.number.isRequired
   },

@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import Editor from './Editor';
@@ -11,7 +12,7 @@ import '../stylesheets/article-write.styl';
  * - onArticleSubmit
  * - id
  */
-const ArticleWrite = React.createClass({
+const ArticleWrite = createReactClass({
   getInitialState() {
     return {index: 0};
   },
@@ -32,7 +33,7 @@ const ArticleWrite = React.createClass({
   }
 });
 
-const ArticleFormProto = React.createClass({
+const ArticleFormProto = createReactClass({
   getInitialState() {
     return {
       title: '',

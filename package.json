@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "xo",
-    "build": "NODE_ENV=production webpack -p",
-    "start": "webpack-dev-server"
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development"
   },
   "repository": {
     "type": "git",
@@ -15,76 +15,41 @@
   "license": "AGPL-3.0",
   "author": "",
   "devDependencies": {
-    "babel-core": "^6.16.0",
-    "babel-loader": "^6.2.5",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-3": "^6.17.0",
-    "copy-webpack-plugin": "^4.0.0",
-    "css-loader": "^0.25.0",
-    "eslint": "^4.18.2",
-    "eslint-config-xo-react": "^0.10.0",
-    "eslint-plugin-filenames": "^1.1.0",
-    "eslint-plugin-react": "^6.3.0",
-    "extract-text-webpack-plugin": "^2.0.0",
-    "style-loader": "^0.13.1",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^2.3.1",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1",
-    "webpack-shell-plugin": "^0.5.0",
-    "xo": "^0.16.0",
-    "xo-loader": "^0.7.0"
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@babel/preset-react": "^8.0.1",
+    "babel-loader": "^10.1.1",
+    "copy-webpack-plugin": "^14.0.0",
+    "css-loader": "^7.1.4",
+    "globals": "^17.7.0",
+    "mini-css-extract-plugin": "^2.10.2",
+    "style-loader": "^4.0.0",
+    "stylus": "^0.64.0",
+    "stylus-loader": "^9.0.0",
+    "webpack": "^5.108.4",
+    "webpack-cli": "^7.2.1",
+    "webpack-dev-server": "^6.0.0",
+    "xo": "^4.0.0"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "core-js": "^2.4.1",
-    "dangerously-set-inner-html": "https://github.com/Leeingnyo/dangerously-set-inner-html.git",
-    "deep-equal": "^1.0.1",
-    "history": "^4.6.1",
+    "classnames": "^2.5.1",
+    "connected-react-router": "^6.9.3",
+    "core-js": "^3.49.0",
+    "create-react-class": "^15.7.0",
+    "deep-equal": "^2.2.3",
+    "easymde": "^2.21.0",
+    "history": "4.10.1",
     "iframe-resizer": "^3.5.11",
-    "immutable": "^3.8.1",
-    "js-cookie": "^2.1.3",
-    "moment": "^2.14.1",
+    "moment": "^2.30.1",
     "query-string": "^4.3.2",
-    "react": "^15.3.1",
-    "react-browser-detection": "^1.0.2",
-    "react-dom": "^15.3.1",
-    "react-interval": "^1.3.3",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-measure": "^1.4.5",
-    "react-redux": "^4.4.5",
-    "react-router": "^4.0.0",
-    "react-router-dom": "^4.0.0",
-    "react-router-redux": "next",
-    "redux": "^3.6.0",
-    "simplemde": "^1.11.2",
-    "whatwg-fetch": "^1.0.0"
+    "react-redux": "7.2.9",
+    "react-router": "5.3.4",
+    "react-router-dom": "5.3.4",
+    "redux": "4.2.1",
+    "whatwg-fetch": "^3.6.20"
   },
-  "xo": {
-    "esnext": true,
-    "space": 2,
-    "envs": [
-      "browser"
-    ],
-    "ignores": [
-      "docker/**"
-    ],
-    "rules": {
-      "eqeqeq": "off",
-      "no-eq-null": "off",
-      "no-alert": "warn",
-      "xo/filename-case": "off",
-      "react/forbid-component-props": "off",
-      "react/no-danger": "off",
-      "react/prop-types": "off",
-      "filenames/match-exported": "error",
-      "no-use-extend-native/no-use-extend-native": "off"
-    },
-    "plugins": [
-      "filenames"
-    ],
-    "extends": [
-      "xo-react"
-    ]
-  }
+  "packageManager": "yarn@4.17.1"
 }

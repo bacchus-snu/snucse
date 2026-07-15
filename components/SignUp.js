@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {DataCon, Url, genRefCallback, connectModals} from '../utils';
@@ -6,7 +7,7 @@ import Modal from './Modal';
 
 import '../stylesheets/login.styl';
 
-const SignUp = React.createClass({
+const SignUp = createReactClass({
   render() {
     const modal = this.props.modalEnabled ? <Modal/> : null;
     return (
@@ -42,7 +43,7 @@ const birthReg = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
 const bsNumReg = /^[0-9]{4}-[0-9]{5}$/;
 const phoneNumReg = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/;
 
-const SignUpForm = connectModals(React.createClass({
+const SignUpForm = connectModals(createReactClass({
   handleSignUp(e) {
     e.preventDefault();
     const values = this.validateForm();

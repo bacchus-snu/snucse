@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {loadTagCloud} from '../../actions/dispatchers';
 import TagCloud from './TagCloud';
 
-const TagCloudContainer = React.createClass({
+const TagCloudContainer = createReactClass({
   render() {
     return <TagCloud tags={this.props.tags}/>;
   }

@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-const Message = React.createClass({
+const Message = createReactClass({
   render() {
     return (
       <div/>

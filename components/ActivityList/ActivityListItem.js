@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 
@@ -35,7 +36,7 @@ const messages = {
   }
 };
 
-const ActivityListItem = React.createClass({
+const ActivityListItem = createReactClass({
 
   propTypes: {
     activity: React.PropTypes.object
