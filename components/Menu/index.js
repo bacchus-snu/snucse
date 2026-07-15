@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import Measure from 'react-measure';
 
@@ -9,7 +10,7 @@ import Modal from '../Modal';
 import TopMenu from './TopMenu';
 import SideMenu from './SideMenu';
 
-const Menu = React.createClass({
+const Menu = createReactClass({
   componentDidMount() {
     this.props.loadUserInfo();
   },

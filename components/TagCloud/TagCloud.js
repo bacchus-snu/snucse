@@ -1,11 +1,12 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import queryString from 'query-string';
 
 import {UserLevel} from '../../utils';
 
-const TagCloud = React.createClass({
+const TagCloud = createReactClass({
   render() {
     const tagItems = this.props.tags.map(tag => {
       switch (this.props.userLevel) {

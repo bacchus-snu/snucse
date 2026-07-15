@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {genRefCallback, connectModals} from '../../utils';
 import {changePassword} from '../../actions/dispatchers';
 
-const ChangePasswordBox = React.createClass({
+const ChangePasswordBox = createReactClass({
   handleChangePasswordSubmit(event) {
     event.preventDefault();
     const currentPassword = this._current.value;

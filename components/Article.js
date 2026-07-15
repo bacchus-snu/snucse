@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {clearArticle, loadArticle} from '../actions/dispatchers';
 import {ArticleItem, ArticleLoading, ArticleNotFound} from './ArticleItem';
 
-const Article = React.createClass({
+const Article = createReactClass({
 
   componentWillMount() {
     this.props.loadArticle(this.props.id);

@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-const FeedLoadMore = React.createClass({
+const FeedLoadMore = createReactClass({
   getInitialState() {
     return {
       loading: false

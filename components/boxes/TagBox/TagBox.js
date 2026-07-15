@@ -1,9 +1,10 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import TagList from './TagList';
 import TagFormContainer from './TagFormContainer';
 
-const TagBox = React.createClass({
+const TagBox = createReactClass({
   propTypes: {
     id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
     addable: React.PropTypes.bool,

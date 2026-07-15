@@ -1,11 +1,12 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {loadProfileComments, loadProfileCommentReplies, setLastProfileComment, writeProfileComment, modifyFoldProfileComments, editProfileComment, deleteProfileComment} from '../../../actions/dispatchers';
 import {ProfileCommentRecommendBox} from '../';
 import CommentBox from './CommentBox';
 
-const ProfileCommentBox = React.createClass({
+const ProfileCommentBox = createReactClass({
 
   propTypes: {
     profileId: React.PropTypes.string.isRequired,

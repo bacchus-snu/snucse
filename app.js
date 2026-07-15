@@ -1,12 +1,12 @@
 // Map, Set과 String.prototype.includes 등을 사용할 수 있게 함
-import 'core-js/shim';
+import 'core-js/stable';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, Switch} from 'react-router';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import {ConnectedRouter, routerReducer, routerMiddleware} from 'react-router-redux';
+import {ConnectedRouter, connectRouter, routerMiddleware} from 'connected-react-router';
 import createHistory from 'history/createBrowserHistory';
 
 import './stylesheets/reset.css';
@@ -41,7 +41,7 @@ const history = createHistory();
 const middleware = routerMiddleware(history);
 
 const store = createStore(
-  combineReducers({...reducers, routerReducer}),
+  combineReducers({...reducers, router: connectRouter(history)}),
   applyMiddleware(middleware)
 );
 

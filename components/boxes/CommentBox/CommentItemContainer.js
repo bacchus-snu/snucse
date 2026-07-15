@@ -1,11 +1,12 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import CommentList from './CommentList';
 import CommentFormContainer from './CommentFormContainer';
 import CommentItem from './CommentItem';
 
-const CommentItemContainer = React.createClass({
+const CommentItemContainer = createReactClass({
 
   propTypes: {
     id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]).isRequired,

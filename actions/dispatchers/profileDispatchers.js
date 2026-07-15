@@ -1,4 +1,4 @@
-import {goBack} from 'react-router-redux';
+import {goBack} from 'connected-react-router';
 
 import {DataCon, Url} from '../../utils';
 import * as types from '../actionTypes';

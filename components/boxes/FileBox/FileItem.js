@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-const FileItem = React.createClass({
+const FileItem = createReactClass({
   render() {
     return (
       <a href={this.props.path}>{this.props.name}</a>

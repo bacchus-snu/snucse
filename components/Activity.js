@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import queryString from 'query-string';
 import ActivityList from './ActivityList';
 
-const Activity = React.createClass({
+const Activity = createReactClass({
 
   render() {
     const query = queryString.parse(this.props.location.search);

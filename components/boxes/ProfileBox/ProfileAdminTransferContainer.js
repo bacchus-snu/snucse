@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 
 /*
@@ -8,7 +9,7 @@ import {Link} from 'react-router-dom';
  * - mine
  */
 
-const ProfileAdminTransferContainer = React.createClass({
+const ProfileAdminTransferContainer = createReactClass({
   render() {
     const {id, admin, mine} = this.props;
     if (!admin) {

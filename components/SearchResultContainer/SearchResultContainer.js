@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import isEqual from 'deep-equal';
 import queryString from 'query-string';
@@ -7,7 +8,7 @@ import '../../stylesheets/search-result.styl';
 import {loadSearchResult} from '../../actions/dispatchers';
 import SearchResultView from './SearchResultView';
 
-const SearchResultContainer = React.createClass({
+const SearchResultContainer = createReactClass({
   loadSearchResult(query) {
     this.props.loadSearchResult(query.query, query.category, (Number(query.page) || 0) + 1, query.num);
   },

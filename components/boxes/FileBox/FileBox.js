@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import FileItemContainer from './FileItemContainer';
 
@@ -10,7 +11,7 @@ import FileItemContainer from './FileItemContainer';
  * - onAliveChange(fileId) (iff editable)
  */
 
-const FileBox = React.createClass({
+const FileBox = createReactClass({
   render() {
     const fileItems = this.props.files.map(file => {
       return (

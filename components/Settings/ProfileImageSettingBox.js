@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {connectModals} from '../../utils';
 import {updateProfileImage} from '../../actions/dispatchers';
 
-const ProfileImageSettingBox = React.createClass({
+const ProfileImageSettingBox = createReactClass({
   getInitialState() {
     return {
       file: undefined

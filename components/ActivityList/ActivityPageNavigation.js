@@ -1,7 +1,8 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 
-const ActivityPageNavigation = React.createClass({
+const ActivityPageNavigation = createReactClass({
 
   propTypes: {
     count: React.PropTypes.number,

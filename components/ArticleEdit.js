@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {DataCon, Url, connectModals} from '../utils';
 import Editor from './Editor';
 
@@ -6,7 +7,7 @@ import {FileBox, FileUploadBox} from './boxes';
 
 import '../stylesheets/article-write.styl';
 
-const ArticleEdit = React.createClass({
+const ArticleEdit = createReactClass({
   loadArticleFromServer() {
     const {articleId} = this.props.match.params;
     const url = Url.getUrl(`/articles/${articleId}`);

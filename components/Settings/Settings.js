@@ -1,11 +1,12 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import ProfileImageSettingBox from './ProfileImageSettingBox';
 import ChangePasswordBox from './ChangePasswordBox';
 
 import '../../stylesheets/settings.styl';
 
-const Settings = React.createClass({
+const Settings = createReactClass({
   render() {
     return (
       <div id="settings">

@@ -1,9 +1,10 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import {SearchResultTagBox} from '../boxes';
 import SearchResultLinks from './SearchResultLinks';
 
-const TagSearchResultView = React.createClass({
+const TagSearchResultView = createReactClass({
   render() {
     const {query, result} = this.props;
     const page = Number(this.props.page) || 0;

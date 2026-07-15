@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import FileBox from './FileBox';
 
-const WrappedFileBox = React.createClass({
+const WrappedFileBox = createReactClass({
 
   propTypes: {
     files: React.PropTypes.array,

@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import {CommentSearchResult} from './SearchResultItems';
 import EmptyResultView from './EmptyResultView';
 import SearchResultLinks from './SearchResultLinks';
 
-const CommentSearchResultView = React.createClass({
+const CommentSearchResultView = createReactClass({
   render() {
     const {query, result} = this.props;
     const page = Number(this.props.page) || 0;

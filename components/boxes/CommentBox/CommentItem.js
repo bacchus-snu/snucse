@@ -1,11 +1,12 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import moment from 'moment';
 import {Link} from 'react-router-dom';
 
 import Realtime from '../../Realtime';
 import {connectModals} from '../../../utils';
 
-const CommentItem = React.createClass({
+const CommentItem = createReactClass({
 
   propTypes: {
     comment: React.PropTypes.object.isRequired,

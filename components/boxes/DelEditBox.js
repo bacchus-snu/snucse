@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import {push} from 'connected-react-router';
 
 import {connectModals} from '../../utils';
 
-const DelEditBox = React.createClass({
+const DelEditBox = createReactClass({
   handleArticleUpdate() {
     this.props.updateArticle(this.props.articleId);
   },

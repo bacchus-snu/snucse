@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import RecommendBox from './RecommendBox';
 
-const RecommendBoxContainer = React.createClass({
+const RecommendBoxContainer = createReactClass({
   handleRecommend() {
     this.props.recommend(this.props.id);
   },

@@ -1,11 +1,12 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import queryString from 'query-string';
 import moment from 'moment';
 
 import Realtime from '../Realtime';
 
-export const ArticleSearchResult = React.createClass({
+export const ArticleSearchResult = createReactClass({
   render() {
     const {profiles, id, title, content, writer, createdAt} = this.props.article;
     const primaryProfile = profiles[0];
@@ -33,7 +34,7 @@ export const ArticleSearchResult = React.createClass({
   }
 });
 
-export const CommentSearchResult = React.createClass({
+export const CommentSearchResult = createReactClass({
   render() {
     const {content, writer, createdAt, recommendationCount, article, articleId} = this.props.comment;
     const {title} = article;
@@ -61,7 +62,7 @@ export const CommentSearchResult = React.createClass({
   }
 });
 
-export const ProfileSearchResult = React.createClass({
+export const ProfileSearchResult = createReactClass({
   render() {
     const {name, description, id} = this.props.profile;
     return (
@@ -77,7 +78,7 @@ export const ProfileSearchResult = React.createClass({
   }
 });
 
-export const TagSearchResult = React.createClass({
+export const TagSearchResult = createReactClass({
   render() {
     const {tag} = this.props.tag;
     return (

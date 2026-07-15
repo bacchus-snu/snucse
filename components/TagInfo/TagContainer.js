@@ -1,11 +1,12 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {loadTagInformation} from '../../actions/dispatchers';
 import {UserLevel} from '../../utils';
 import TagViewWrapper from './TagViewWrapper';
 
-const TagContainer = React.createClass({
+const TagContainer = createReactClass({
   componentDidMount() {
     if (this.props.userLevel === UserLevel.REGULAR) {
       this.props.loadTagInformation(this.props.tagName);

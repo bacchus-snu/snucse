@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -11,7 +12,7 @@ import ProfileAdminTransferForm from './ProfileAdminTransferForm';
  * - id
  */
 
-const ProfileAdminTransferBox = React.createClass({
+const ProfileAdminTransferBox = createReactClass({
   componentDidMount() {
     this.props.loadProfileDetail(this.props.id);
   },

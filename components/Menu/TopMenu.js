@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {UserLevel} from '../../utils';
 
-const TopMenu = React.createClass({
+const TopMenu = createReactClass({
   handleLogout() {
     localStorage.removeItem('snucsesession');
     location.href = '/login';

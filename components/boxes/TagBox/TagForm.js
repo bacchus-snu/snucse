@@ -1,9 +1,10 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import classnames from 'classnames';
 
 import {genRefCallback} from '../../../utils';
 
-const TagForm = React.createClass({
+const TagForm = createReactClass({
   addTag() {
     if ((this._content || false) && this._content.value !== '') {
       this.props.onAdd(this._content.value);

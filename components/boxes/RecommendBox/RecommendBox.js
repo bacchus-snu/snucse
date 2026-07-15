@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-const RecommendBox = React.createClass({
+const RecommendBox = createReactClass({
   handleRecommend() {
     this.props.onRecommend();
   },

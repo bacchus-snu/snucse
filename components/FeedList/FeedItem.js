@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import FeedArticle from './FeedArticle';
 import FeedLoadMore from './FeedLoadMore';
@@ -8,7 +9,7 @@ import FeedLoadMore from './FeedLoadMore';
 // - type: 'loadmore', automatic: boolean, options: {
 //     maxId?: number, sinceId?: number
 //   }
-const FeedItem = React.createClass({
+const FeedItem = createReactClass({
   handleLoadMore(options) {
     this.props.onLoadMore(options);
   },

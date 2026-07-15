@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {DataCon, Url} from '../utils';
@@ -7,7 +8,7 @@ import FeedList from './FeedList';
 import ArticleWrite from './ArticleWrite';
 import ToTopButton from './ToTopButton';
 
-const Feed = React.createClass({
+const Feed = createReactClass({
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.loadFeed({profileId: this.props.profileId});

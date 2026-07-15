@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import {updateTimes} from '../actions/dispatchers';
 
-const TimeManager = React.createClass({
+const TimeManager = createReactClass({
   render() {
     return <div>{this.props.children}</div>;
   },

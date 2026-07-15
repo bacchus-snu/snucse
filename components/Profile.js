@@ -1,7 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import InnerHTML from 'dangerously-set-inner-html';
 import classnames from 'classnames';
 
 import {updateFollowingList, clearProfileDetail, loadProfileDetail, updateFollowingState} from '../actions/dispatchers';
@@ -11,7 +11,7 @@ import {UserLevel} from '../utils';
 import {ProfileTagBox, ProfileCommentBox} from './boxes';
 import Feed from './Feed';
 
-const Profile = React.createClass({
+const Profile = createReactClass({
 
   getInitialState() {
     return {
@@ -90,7 +90,7 @@ const Profile = React.createClass({
     );
     const profileMain = this.state.isFolded ? null : (
       <div id="profile-main">
-        <InnerHTML id="profile-description" html={renderedDescription}/>
+        <div id="profile-description" dangerouslySetInnerHTML={{__html: renderedDescription}}/>
         <ProfileTagBox profileId={id}/>
         <ProfileCommentBox
           profileId={id}
@@ -120,7 +120,7 @@ const Profile = React.createClass({
   }
 });
 
-const FollowBox = React.createClass({
+const FollowBox = createReactClass({
   handleFollow() {
     this.props.onFollowChanged(true);
   },

@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-const ProfileAdminTransferForm = React.createClass({
+const ProfileAdminTransferForm = createReactClass({
   getInitialState() {
     return {
       newId: ''

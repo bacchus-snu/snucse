@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-const FollowingProfileList = React.createClass({
+const FollowingProfileList = createReactClass({
   render() {
     const profiles = this.props.me.following.map(profile => {
       return (

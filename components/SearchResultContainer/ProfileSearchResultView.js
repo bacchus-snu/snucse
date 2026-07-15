@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import {ProfileSearchResult} from './SearchResultItems';
 import EmptyResultView from './EmptyResultView';
 import SearchResultLinks from './SearchResultLinks';
 
-const ProfileSearchResultView = React.createClass({
+const ProfileSearchResultView = createReactClass({
   render() {
     const {query, result} = this.props;
     const page = Number(this.props.page) || 0;

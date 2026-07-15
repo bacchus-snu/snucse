@@ -1,10 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import '../../stylesheets/article.styl';
 import '../../stylesheets/tagbox.styl';
 import FeedItem from './FeedItem';
 
-const FeedList = React.createClass({
+const FeedList = createReactClass({
   handleLoadMore(options) {
     this.props.onLoadMore(options);
   },
