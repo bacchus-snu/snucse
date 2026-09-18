@@ -13,8 +13,7 @@ import ArticleEdit from './ArticleEdit';
 import SearchResult from './SearchResultContainer';
 import ClassManager from './ClassManager';
 import Login from './Login';
-import SignUp from './SignUp';
-import PrivacyConsent from './PrivacyConsent';
+import LoginCallback from './LoginCallback';
 import Settings from './Settings';
 import TimeManager from './TimeManager';
 
@@ -34,8 +33,7 @@ export {
   SearchResult,
   ClassManager,
   Login,
-  SignUp,
-  PrivacyConsent,
+  LoginCallback,
   Settings,
   TimeManager
 };

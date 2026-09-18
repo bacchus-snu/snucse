@@ -53,7 +53,8 @@ const PrivacyConsent = React.createClass({
             </div>
           </section>
           <nav id="privacy-consent-actions">
-            <a href="/sign-up">가입 화면으로 돌아가기</a>
+            <button onClick={this.props.onDisagree}>동의하지 않음</button>
+            <button onClick={this.props.onAgree}>동의하고 스누씨 계정 만들기</button>
           </nav>
         </main>
       </div>

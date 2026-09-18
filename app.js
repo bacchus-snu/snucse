@@ -28,8 +28,7 @@ import {
   SearchResult,
   ClassManager,
   Login,
-  SignUp,
-  PrivacyConsent,
+  LoginCallback,
   Settings,
   TimeManager
 } from './components';
@@ -77,9 +76,8 @@ ReactDOM.render(
     <TimeManager>
       <ConnectedRouter history={history}>
         <Switch>
+          <Route path="/login/callback" component={LoginCallback}/>
           <Route path="/login" component={Login}/>
-          <Route path="/sign-up" component={SignUp}/>
-          <Route path="/privacy-consent" component={PrivacyConsent}/>
           <Route path="/" component={MenuRoute}/>
         </Switch>
       </ConnectedRouter>
