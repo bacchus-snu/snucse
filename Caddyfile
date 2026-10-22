@@ -1,6 +1,9 @@
 :8080 {
   root * /app
   encode gzip zstd
+  header {
+    Cache-Control "no-cache"
+  }
   try_files {path} /index.html
   file_server
   log

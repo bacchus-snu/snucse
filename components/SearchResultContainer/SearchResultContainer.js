@@ -14,12 +14,13 @@ const SearchResultContainer = createReactClass({
   },
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.loadSearchResult(queryString.parse(this.props.location.search));
   },
 
-  componentWillReceiveProps(props) {
-    const oldQ = queryString.parse(this.props.location.search);
-    const newQ = queryString.parse(props.location.search);
+  componentDidUpdate(prevProps) {
+    const oldQ = queryString.parse(prevProps.location.search);
+    const newQ = queryString.parse(this.props.location.search);
     if (!isEqual(oldQ, newQ)) {
       window.scrollTo(0, 0);
       this.loadSearchResult(newQ);
