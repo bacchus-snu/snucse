@@ -1,14 +1,15 @@
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
 RUN apk add --no-cache git
 
-COPY yarn.lock package.json ./
-RUN yarn
+COPY .yarnrc.yml package.json yarn.lock ./
+COPY .yarn/releases .yarn/releases
+RUN node .yarn/releases/yarn-4.18.1.cjs install --immutable
 
 COPY . .
-RUN yarn run build
+RUN node .yarn/releases/yarn-4.18.1.cjs run build
 
 FROM caddy:2
 

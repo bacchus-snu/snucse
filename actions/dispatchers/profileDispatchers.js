@@ -28,8 +28,8 @@ export function loadProfileDetail(dispatch, id) {
     });
     return current;
   }).then(current => {
-    const {id, tags} = current;
-    loadProfileTag(dispatch, id, tags);
+    const {id: currentId, tags} = current;
+    loadProfileTag(dispatch, currentId, tags);
   }).catch(err => {
     console.error(err);
     dispatch({
