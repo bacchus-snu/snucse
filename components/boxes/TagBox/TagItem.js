@@ -11,19 +11,22 @@ const TagItem = createReactClass({
   },
 
   handleClickDelete() {
-    this.props.onDelete(this.props.tag.tag);
+    this.props.onDelete(this.props.tag.tag || this.props.tag.name);
   },
 
   render() {
+    const {tag} = this.props;
+    const tagValue = tag.tag || tag.name || '';
+    const taggedBy = (tag.writer && tag.writer.name) || (tag.creator && tag.creator.name) || '';
     const tagName = this.props.accessible ? (
       <Link
         className="tag-item-name"
-        to={{pathname: '/tags', search: '?' + queryString.stringify({tag: this.props.tag.tag})}}
+        to={{pathname: '/tags', search: '?' + queryString.stringify({tag: tagValue})}}
         >
-        <span title={`tagged by ${this.props.tag.writer.name}`}>{this.props.tag.tag}</span>
+        <span title={taggedBy ? `tagged by ${taggedBy}` : undefined}>{tagValue}</span>
       </Link>
     ) : (
-      <span className="tag-item-name">{this.props.tag.tag}</span>
+      <span className="tag-item-name">{tagValue}</span>
     );
     const deleteButton = this.props.accessible && this.props.deletable ? (
       <button className="tag-item-delete-button" onClick={this.handleClickDelete}>×</button>
