@@ -1824,43 +1824,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iframe-resizer/child@npm:5.5.9":
-  version: 5.5.9
-  resolution: "@iframe-resizer/child@npm:5.5.9"
-  dependencies:
-    auto-console-group: "npm:1.3.0"
-  checksum: 10c0/a29be48683ed6e4dfd24e3233b73a2b347acafb7ee53b34a62d308a24cab14b5c1345f809dc29952c1514810f4ad76747cfbf57d7b5c32eabd31205200c966ea
-  languageName: node
-  linkType: hard
-
-"@iframe-resizer/core@npm:5.5.9":
-  version: 5.5.9
-  resolution: "@iframe-resizer/core@npm:5.5.9"
-  dependencies:
-    auto-console-group: "npm:1.3.0"
-  checksum: 10c0/e248fc5ec2e77d3d7d280a31470294200b9f9c2616a10025531548499f318fdd14ab0915a3c3bcd1c2001b8a4a0c9ce766de4bf218e526b8c465c7a023329ba4
-  languageName: node
-  linkType: hard
-
-"@iframe-resizer/jquery@npm:5.5.9":
-  version: 5.5.9
-  resolution: "@iframe-resizer/jquery@npm:5.5.9"
-  dependencies:
-    "@iframe-resizer/core": "npm:5.5.9"
-  checksum: 10c0/53dce0b60e59851116d34cdf78c5dc8bc349749937306838260f6b0cb4e525399dbdd0d21698d9f26c7b4595cdda92101b261e2b15c8570e487169fae195f782
-  languageName: node
-  linkType: hard
-
-"@iframe-resizer/parent@npm:5.5.9":
-  version: 5.5.9
-  resolution: "@iframe-resizer/parent@npm:5.5.9"
-  dependencies:
-    "@iframe-resizer/core": "npm:5.5.9"
-    auto-console-group: "npm:1.3.0"
-  checksum: 10c0/6cbb62722ed19a5acdc2f5f4324f06718f8ff9908a63bc53a82a380dc9d8ca7b276bdf430ae765feab1385d4fe4ebb1da4dcc684f8665ecab68c6b4c29893222
-  languageName: node
-  linkType: hard
-
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -3375,13 +3338,6 @@ __metadata:
   version: 1.0.0
   resolution: "async-generator-function@npm:1.0.0"
   checksum: 10c0/2c50ef856c543ad500d8d8777d347e3c1ba623b93e99c9263ecc5f965c1b12d2a140e2ab6e43c3d0b85366110696f28114649411cbcd10b452a92a2318394186
-  languageName: node
-  linkType: hard
-
-"auto-console-group@npm:1.3.0":
-  version: 1.3.0
-  resolution: "auto-console-group@npm:1.3.0"
-  checksum: 10c0/a42d5d2a4aaa21ec757e7cb4c873d1ec5e0fe22bca234ae0d9a34c25a39767cc481be7f4f7eefa1f12c8881b7335a9e672aa476c249949d2df0332508a45f88c
   languageName: node
   linkType: hard
 
@@ -5743,17 +5699,6 @@ __metadata:
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
   checksum: 10c0/b0782ef5e0935b9f12883a2e2aa37baa75da6e66ce6515c168697b42160807d9330de9a32ec1ed73149aea02e0d822e572bca6f1e22bdcbd2149e13b050b17bb
-  languageName: node
-  linkType: hard
-
-"iframe-resizer@npm:^5.5.9":
-  version: 5.5.9
-  resolution: "iframe-resizer@npm:5.5.9"
-  dependencies:
-    "@iframe-resizer/child": "npm:5.5.9"
-    "@iframe-resizer/jquery": "npm:5.5.9"
-    "@iframe-resizer/parent": "npm:5.5.9"
-  checksum: 10c0/3412d4e73f351d627695457a5d3777156def273188985217de5ddcb45345862df742759fe9779c07e5fcf2f56c672a30411466dd330a5562709ceea40d7cb3a5
   languageName: node
   linkType: hard
 
@@ -8617,7 +8562,6 @@ __metadata:
     eslint-config-xo-react: "npm:^0.32.0"
     globals: "npm:^17.13.0"
     history: "npm:^5.3.0"
-    iframe-resizer: "npm:^5.5.9"
     immutable: "npm:^5.1.9"
     js-cookie: "npm:^3.0.8"
     mini-css-extract-plugin: "npm:^2.10.2"

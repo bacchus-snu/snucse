@@ -5,35 +5,11 @@ import Measure from 'react-measure';
 import moment from 'moment';
 import classnames from 'classnames';
 import BrowserDetection from 'react-browser-detection';
-import iframeResizer from 'iframe-resizer';
 
 import Realtime from '../Realtime';
 import {WrappedFileBox, DelEditBox, ArticleTagBox, ArticleRecommendBox, ArticleCommentBox} from '../boxes';
 
 const FeedArticle = createReactClass({
-  bindIframeResizer(iframe) {
-    if (!iframe) {
-      for (const resizer of this._iframeResizers || []) {
-        if (resizer.disconnect) {
-          resizer.disconnect();
-        }
-      }
-      this._iframeResizers = null;
-      return;
-    }
-
-    function resizedCallback(args) {
-      // args: {iframe,height,width,type}
-      const {iframe: frame, height} = args;
-      frame.style.height = height + 'px';
-    }
-    this._iframeResizers = iframeResizer.iframeResize({
-      inPageLinks: true,
-      direction: 'vertical',
-      onResized: resizedCallback
-    }, iframe);
-  },
-
   handleArticleDelete(articleId) {
     this.props.onArticleDelete(articleId);
   },
@@ -48,8 +24,33 @@ const FeedArticle = createReactClass({
 
   handleIframeLoad(event) {
     const iframe = event.target;
-    const doc = iframe.contentWindow.document;
-    iframe.style.height = doc.body.scrollHeight + 'px';
+    let doc;
+    try {
+      doc = iframe.contentWindow && iframe.contentWindow.document;
+    } catch {
+      return;
+    }
+    if (!doc || !doc.body) {
+      return;
+    }
+    const resize = () => {
+      iframe.style.height = doc.body.scrollHeight + 'px';
+    };
+    resize();
+    if (this._iframeResizeObserver) {
+      this._iframeResizeObserver.disconnect();
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+      this._iframeResizeObserver = new ResizeObserver(resize);
+      this._iframeResizeObserver.observe(doc.body);
+    }
+  },
+
+  componentWillUnmount() {
+    if (this._iframeResizeObserver) {
+      this._iframeResizeObserver.disconnect();
+      this._iframeResizeObserver = null;
+    }
   },
 
   getInitialState() {
@@ -108,7 +109,6 @@ const FeedArticle = createReactClass({
         className={classname}
         >
         <iframe
-          ref={this.bindIframeResizer}
           width="100%"
           onLoad={this.handleIframeLoad}
           sandbox={"allow-scripts allow-same-origin allow-forms allow-top-navigation"}
