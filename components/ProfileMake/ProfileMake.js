@@ -1,8 +1,8 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 
 import ProfileMakeForm from './ProfileMakeForm';
 
-const ProfileMake = React.createClass({
+const ProfileMake = createReactClass({
   render() {
     return (
       <ProfileMakeForm/>

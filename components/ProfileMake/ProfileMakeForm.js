@@ -1,8 +1,6 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
-
-import {DataCon, Url, genRefCallback, connectModals} from '../../utils';
+import {DataCon, Url, genRefCallback, connectModals, withRouterProps} from '../../utils';
 import {updateFollowingList, alertModal} from '../../actions/dispatchers';
 
 import Editor from '../Editor';
@@ -10,7 +8,7 @@ import '../../stylesheets/profile-new.styl';
 
 const reg = /^[a-zA-Z_][a-zA-Z0-9_]+$/;
 
-const ProfileMakeForm = React.createClass({
+const ProfileMakeForm = createReactClass({
   getInitialState() {
     return {
       renderingMode: 'md',
@@ -87,14 +85,14 @@ const ProfileMakeForm = React.createClass({
   }
 });
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
     updateProfile: data => {
       const url = Url.getUrl('/profiles');
       DataCon.postDataToServer(url, 'POST', data).then(() => {
         alertModal(dispatch, '알림', '프로필 생성에 성공하였습니다.');
         updateFollowingList(dispatch);
-        dispatch(push(`/${data.id}`));
+        ownProps.navigate(`/${data.id}`);
       }).catch(() => {
         alertModal(dispatch, '알림', 'ID가 중복되었습니다.');
       });
@@ -102,4 +100,4 @@ const mapDispatchToProps = function (dispatch) {
   };
 };
 
-export default connectModals(connect(null, mapDispatchToProps)(ProfileMakeForm));
+export default withRouterProps(connectModals(connect(null, mapDispatchToProps)(ProfileMakeForm)));

@@ -1,8 +1,8 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {connectModals} from '../../../utils';
+import {connectModals, withRouterProps} from '../../../utils';
 import {loadProfileDetail, changeAdmin} from '../../../actions/dispatchers';
 import ProfileAdminTransferForm from './ProfileAdminTransferForm';
 
@@ -11,7 +11,7 @@ import ProfileAdminTransferForm from './ProfileAdminTransferForm';
  * - id
  */
 
-const ProfileAdminTransferBox = React.createClass({
+const ProfileAdminTransferBox = createReactClass({
   componentDidMount() {
     this.props.loadProfileDetail(this.props.id);
   },
@@ -61,11 +61,11 @@ const mapStateToProps = function (state) {
   };
 };
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
-    loadProfileDetail: id => loadProfileDetail(dispatch, id),
+    loadProfileDetail: id => loadProfileDetail(dispatch, id, () => ownProps.navigate(-1)),
     changeAdmin: (id, newId) => changeAdmin(dispatch, id, newId)
   };
 };
 
-export default connectModals(connect(mapStateToProps, mapDispatchToProps)(ProfileAdminTransferBox));
+export default withRouterProps(connectModals(connect(mapStateToProps, mapDispatchToProps)(ProfileAdminTransferBox)));

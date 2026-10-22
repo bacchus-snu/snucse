@@ -1,8 +1,9 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import queryString from 'query-string';
 import ActivityList from './ActivityList';
+import {withRouterProps} from '../utils';
 
-const Activity = React.createClass({
+const Activity = createReactClass({
 
   render() {
     const query = queryString.parse(this.props.location.search);
@@ -15,4 +16,4 @@ const Activity = React.createClass({
   }
 });
 
-export default Activity;
+export default withRouterProps(Activity);

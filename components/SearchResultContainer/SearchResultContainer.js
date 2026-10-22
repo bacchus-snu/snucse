@@ -1,13 +1,14 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import isEqual from 'deep-equal';
 import queryString from 'query-string';
 
 import '../../stylesheets/search-result.styl';
 import {loadSearchResult} from '../../actions/dispatchers';
+import {withRouterProps} from '../../utils';
 import SearchResultView from './SearchResultView';
 
-const SearchResultContainer = React.createClass({
+const SearchResultContainer = createReactClass({
   loadSearchResult(query) {
     this.props.loadSearchResult(query.query, query.category, (Number(query.page) || 0) + 1, query.num);
   },
@@ -44,4 +45,4 @@ const mapDispatchToProps = function (dispatch) {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResultContainer);
+export default withRouterProps(connect(mapStateToProps, mapDispatchToProps)(SearchResultContainer));

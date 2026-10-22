@@ -1,14 +1,15 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 
 import FileBox from './FileBox';
 
-const WrappedFileBox = React.createClass({
+const WrappedFileBox = createReactClass({
 
   propTypes: {
-    files: React.PropTypes.array,
-    editable: React.PropTypes.bool,
-    alives: React.PropTypes.object,
-    onAliveChange: React.PropTypes.func
+    files: PropTypes.array,
+    editable: PropTypes.bool,
+    alives: PropTypes.object,
+    onAliveChange: PropTypes.func
   },
 
   getInitialState() {

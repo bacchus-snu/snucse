@@ -1,15 +1,16 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 
 import TagItem from './TagItem';
 
-const TagItemContainer = React.createClass({
+const TagItemContainer = createReactClass({
 
   propTypes: {
-    id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
-    tag: React.PropTypes.object.isRequired,
-    accessible: React.PropTypes.bool,
-    deletable: React.PropTypes.bool,
-    deleteTag: React.PropTypes.func
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    tag: PropTypes.object.isRequired,
+    accessible: PropTypes.bool,
+    deletable: PropTypes.bool,
+    deleteTag: PropTypes.func
   },
 
   handleDelete(tagName) {

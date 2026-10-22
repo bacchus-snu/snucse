@@ -1,15 +1,16 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 
 import ActivityListItem from './ActivityListItem';
 
-const ActivityList = React.createClass({
+const ActivityList = createReactClass({
 
   propTypes: {
-    loadActivity: React.PropTypes.func,
-    activities: React.PropTypes.array,
-    loading: React.PropTypes.bool,
-    isError: React.PropTypes.bool,
-    query: React.PropTypes.object
+    loadActivity: PropTypes.func,
+    activities: PropTypes.array,
+    loading: PropTypes.bool,
+    isError: PropTypes.bool,
+    query: PropTypes.object
   },
 
   componentDidMount() {

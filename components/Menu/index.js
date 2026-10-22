@@ -1,4 +1,4 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import Measure from 'react-measure';
 
@@ -9,7 +9,7 @@ import Modal from '../Modal';
 import TopMenu from './TopMenu';
 import SideMenu from './SideMenu';
 
-const Menu = React.createClass({
+const Menu = createReactClass({
   componentDidMount() {
     this.props.loadUserInfo();
   },
@@ -21,17 +21,19 @@ const Menu = React.createClass({
   render() {
     const modal = this.props.modalEnabled ? <Modal/> : null;
     return (
-      <Measure onMeasure={this.handleMeasure}>
-        <div>
-          <TopMenu/>
-          <div id="main-container">
-            <SideMenu/>
-            <div id="main">
-              {this.props.children}
+      <Measure bounds onResize={contentRect => this.handleMeasure(contentRect.bounds)}>
+        {({measureRef}) => (
+          <div ref={measureRef}>
+            <TopMenu/>
+            <div id="main-container">
+              <SideMenu/>
+              <div id="main">
+                {this.props.children}
+              </div>
             </div>
+            {modal}
           </div>
-          {modal}
-        </div>
+        )}
       </Measure>
     );
   }

@@ -4,6 +4,7 @@ import RefCallbackHelper from './RefCallbackHelper';
 import UserLevel from './UserLevel';
 import connectModals from './ModalBox';
 import Client from './Client';
+import withRouterProps from './withRouterProps';
 
 const genRefCallback = RefCallbackHelper.generate;
 
@@ -13,5 +14,6 @@ export {
   genRefCallback,
   connectModals,
   UserLevel,
-  Client
+  Client,
+  withRouterProps
 };

@@ -1,10 +1,10 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {recommendArticle} from '../../../actions/dispatchers';
 import RecommendBoxContainer from './RecommendBoxContainer';
 
-const ArticleRecommendBox = React.createClass({
+const ArticleRecommendBox = createReactClass({
   render() {
     return (
       <RecommendBoxContainer

@@ -1,21 +1,21 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import moment from 'moment';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import InnerHTML from 'dangerously-set-inner-html';
 
 import Realtime from '../Realtime';
-import {Url, DataCon} from '../../utils';
+import {Url, DataCon, withRouterProps} from '../../utils';
 import {WrappedFileBox, DelEditBox, ArticleTagBox, ArticleRecommendBox, ArticleCommentBox} from '../boxes';
 
 import '../../stylesheets/article.styl';
 
-const ArticleItem = React.createClass({
+const ArticleItem = createReactClass({
   handleArticleDelete(articleId) {
     const url = Url.getUrl(`/articles/${articleId}`);
     DataCon.postDataToServer(url, 'DELETE')
       .then(() => {
-        this.props.history.goBack();
+        this.props.navigate(-1);
       }).catch(console.error);
   },
 
@@ -64,4 +64,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(ArticleItem);
+export default withRouterProps(connect(mapStateToProps)(ArticleItem));

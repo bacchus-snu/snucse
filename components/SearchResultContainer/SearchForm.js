@@ -1,13 +1,12 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
-
 import '../../stylesheets/search-form.styl';
-import {genRefCallback, connectModals} from '../../utils';
+import {genRefCallback, connectModals, withRouterProps} from '../../utils';
 
-const SearchForm = React.createClass({
+const SearchForm = createReactClass({
   propTypes: {
-    previousCategory: React.PropTypes.string
+    previousCategory: PropTypes.string
   },
 
   handleSubmit(event) {
@@ -48,10 +47,10 @@ const SearchForm = React.createClass({
   }
 });
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
-    search: paramsString => dispatch(push(`/search?${paramsString}`))
+    search: paramsString => ownProps.navigate(`/search?${paramsString}`)
   };
 };
 
-export default connectModals(connect(null, mapDispatchToProps)(SearchForm));
+export default withRouterProps(connectModals(connect(null, mapDispatchToProps)(SearchForm)));

@@ -1,6 +1,6 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 
-const ArticleLoading = React.createClass({
+const ArticleLoading = createReactClass({
   render() {
     return (
       <div className="article-loading">

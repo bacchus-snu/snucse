@@ -1,9 +1,10 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import Profile from './Profile';
 import Article from './Article';
+import {withRouterProps} from '../utils';
 
 const re = /^\d+$/;
-const ClassManager = React.createClass({
+const ClassManager = createReactClass({
   render() {
     const {id} = this.props.match.params;
     if (re.test(id)) {
@@ -13,4 +14,4 @@ const ClassManager = React.createClass({
   }
 });
 
-export default ClassManager;
+export default withRouterProps(ClassManager);

@@ -1,22 +1,23 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import {Link} from 'react-router-dom';
 
 import Realtime from '../../Realtime';
 import {connectModals} from '../../../utils';
 
-const CommentItem = React.createClass({
+const CommentItem = createReactClass({
 
   propTypes: {
-    comment: React.PropTypes.object.isRequired,
-    isDeletable: React.PropTypes.bool,
-    onDelete: React.PropTypes.func,
-    isEditable: React.PropTypes.bool,
-    onEdit: React.PropTypes.func,
-    recommendBox: React.PropTypes.element,
-    isChild: React.PropTypes.bool,
-    replyList: React.PropTypes.element,
-    replyForm: React.PropTypes.element
+    comment: PropTypes.object.isRequired,
+    isDeletable: PropTypes.bool,
+    onDelete: PropTypes.func,
+    isEditable: PropTypes.bool,
+    onEdit: PropTypes.func,
+    recommendBox: PropTypes.element,
+    isChild: PropTypes.bool,
+    replyList: PropTypes.element,
+    replyForm: PropTypes.element
   },
 
   handleClickReply() {

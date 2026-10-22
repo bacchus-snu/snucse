@@ -1,24 +1,25 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 
 import CommentItemContainer from './CommentItemContainer';
 
 const FOLD_COMMENT_LIMIT = 1;
 
-const CommentList = React.createClass({
+const CommentList = createReactClass({
 
   propTypes: {
-    id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]).isRequired,
-    loadComments: React.PropTypes.func,
-    loadReplies: React.PropTypes.func,
-    setLastComment: React.PropTypes.func,
-    modifyFoldComments: React.PropTypes.func,
-    writeComment: React.PropTypes.func,
-    deleteComment: React.PropTypes.func,
-    editComment: React.PropTypes.func,
-    commentsInfo: React.PropTypes.object,
-    repliesInfo: React.PropTypes.object,
-    renderRecommendBox: React.PropTypes.func,
-    isChild: React.PropTypes.bool
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    loadComments: PropTypes.func,
+    loadReplies: PropTypes.func,
+    setLastComment: PropTypes.func,
+    modifyFoldComments: PropTypes.func,
+    writeComment: PropTypes.func,
+    deleteComment: PropTypes.func,
+    editComment: PropTypes.func,
+    commentsInfo: PropTypes.object,
+    repliesInfo: PropTypes.object,
+    renderRecommendBox: PropTypes.func,
+    isChild: PropTypes.bool
   },
 
   loadComments(id) {

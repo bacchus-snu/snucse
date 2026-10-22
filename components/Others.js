@@ -1,6 +1,6 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 
-const Others = React.createClass({
+const Others = createReactClass({
   render() {
     return (
       <div/>

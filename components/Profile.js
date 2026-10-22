@@ -1,4 +1,4 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import InnerHTML from 'dangerously-set-inner-html';
@@ -6,12 +6,12 @@ import classnames from 'classnames';
 
 import {updateFollowingList, clearProfileDetail, loadProfileDetail, updateFollowingState} from '../actions/dispatchers';
 import '../stylesheets/profile.styl';
-import {UserLevel} from '../utils';
+import {UserLevel, withRouterProps} from '../utils';
 
 import {ProfileTagBox, ProfileCommentBox} from './boxes';
 import Feed from './Feed';
 
-const Profile = React.createClass({
+const Profile = createReactClass({
 
   getInitialState() {
     return {
@@ -120,7 +120,7 @@ const Profile = React.createClass({
   }
 });
 
-const FollowBox = React.createClass({
+const FollowBox = createReactClass({
   handleFollow() {
     this.props.onFollowChanged(true);
   },
@@ -162,13 +162,13 @@ const mapStateToProps = function (state) {
   };
 };
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
     clearProfileDetail: () => clearProfileDetail(dispatch),
-    loadProfileDetail: id => loadProfileDetail(dispatch, id),
+    loadProfileDetail: id => loadProfileDetail(dispatch, id, () => ownProps.navigate(-1)),
     updateFollowingState: (id, following) => updateFollowingState(dispatch, id, following),
     updateFollowingList: () => updateFollowingList(dispatch)
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default withRouterProps(connect(mapStateToProps, mapDispatchToProps)(Profile));

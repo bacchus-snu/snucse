@@ -29,7 +29,7 @@ export default [
       'n/file-extension-in-import': 'off',
       'import-x/no-useless-path-segments': 'off',
       'import-x/no-anonymous-default-export': 'off',
-      'import-x/no-unassigned-import': ['error', {allow: ['core-js/shim', 'whatwg-fetch', '**/*.css', '**/*.styl']}],
+      'import-x/no-unassigned-import': ['error', {allow: ['core-js/stable', 'whatwg-fetch', '**/*.css', '**/*.styl']}],
       'unicorn/filename-case': 'off',
       'unicorn/name-replacements': 'off',
       'unicorn/prefer-export-from': 'off',
@@ -100,12 +100,6 @@ export default [
       'prefer-object-has-own': 'off',
       'no-lone-blocks': 'off',
       'unicorn/prefer-module': 'off'
-    }
-  },
-  {
-    files: ['app.js'],
-    rules: {
-      'no-unused-vars': ['error', {varsIgnorePattern: '^React$'}]
     }
   }
 ];

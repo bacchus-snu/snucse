@@ -1,5 +1,3 @@
-import {goBack} from 'react-router-redux';
-
 import {DataCon, Url} from '../../utils';
 import * as types from '../actionTypes';
 import {loadProfileTag, updateFollowingList, alertModal} from './';
@@ -19,7 +17,7 @@ export function clearProfileDetail(dispatch) {
   });
 }
 
-export function loadProfileDetail(dispatch, id) {
+export function loadProfileDetail(dispatch, id, onError) {
   clearProfileDetail(dispatch);
   DataCon.loadDataFromServer(Url.getUrl(`/profiles/${id}`)).then(current => {
     dispatch({
@@ -35,9 +33,7 @@ export function loadProfileDetail(dispatch, id) {
     dispatch({
       type: types.ERR_PROFILE_DETAIL
     });
-    alertModal(dispatch, '알림', '존재하지 않는 프로필입니다.', () => {
-      dispatch(goBack());
-    });
+    alertModal(dispatch, '알림', '존재하지 않는 프로필입니다.', onError);
   });
 }
 

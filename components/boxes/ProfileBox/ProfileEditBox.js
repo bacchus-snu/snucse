@@ -1,4 +1,4 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 
 import Editor from '../../Editor';
 
@@ -11,7 +11,7 @@ import Editor from '../../Editor';
  * - renderingMode
  */
 
-const ProfileEditBox = React.createClass({
+const ProfileEditBox = createReactClass({
   getInitialState() {
     const {description, renderingMode} = this.props;
     return {

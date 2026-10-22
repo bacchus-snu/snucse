@@ -1,21 +1,22 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 
 import TagList from './TagList';
 import TagFormContainer from './TagFormContainer';
 
-const TagBox = React.createClass({
+const TagBox = createReactClass({
   propTypes: {
-    id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
-    addable: React.PropTypes.bool,
-    addTag: React.PropTypes.func,
-    candidates: React.PropTypes.object,
-    loadCandidateTags: React.PropTypes.func,
-    initializeCandidateTags: React.PropTypes.func,
-    getTagFormId: React.PropTypes.func,
-    deletable: React.PropTypes.bool,
-    deleteTag: React.PropTypes.func,
-    tags: React.PropTypes.array,
-    accessible: React.PropTypes.bool
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    addable: PropTypes.bool,
+    addTag: PropTypes.func,
+    candidates: PropTypes.object,
+    loadCandidateTags: PropTypes.func,
+    initializeCandidateTags: PropTypes.func,
+    getTagFormId: PropTypes.func,
+    deletable: PropTypes.bool,
+    deleteTag: PropTypes.func,
+    tags: PropTypes.array,
+    accessible: PropTypes.bool
   },
 
   render() {

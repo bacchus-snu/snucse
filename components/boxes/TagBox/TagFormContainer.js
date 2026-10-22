@@ -1,16 +1,17 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 
 import TagForm from './TagForm';
 
-const TagFormContainer = React.createClass({
+const TagFormContainer = createReactClass({
 
   propTypes: {
-    id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
-    addTag: React.PropTypes.func,
-    candidates: React.PropTypes.object,
-    loadCandidateTags: React.PropTypes.func,
-    initializeCandidateTags: React.PropTypes.func,
-    getTagFormId: React.PropTypes.func
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    addTag: PropTypes.func,
+    candidates: PropTypes.object,
+    loadCandidateTags: PropTypes.func,
+    initializeCandidateTags: PropTypes.func,
+    getTagFormId: PropTypes.func
   },
 
   handleAdd(tagName) {

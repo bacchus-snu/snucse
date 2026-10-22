@@ -1,15 +1,13 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
-
-import {DataCon, Url, genRefCallback} from '../utils';
+import {DataCon, Url, genRefCallback, withRouterProps} from '../utils';
 import {alertModal} from '../actions/dispatchers';
 import Modal from './Modal';
 import '../stylesheets/modalbox.styl';
 
 import '../stylesheets/login.styl';
 
-const Login = React.createClass({
+const Login = createReactClass({
   render() {
     const modal = this.props.modalEnabled ? <Modal/> : null;
     return (
@@ -48,7 +46,7 @@ const Login = React.createClass({
   }
 });
 
-const LoginFormBase = React.createClass({
+const LoginFormBase = createReactClass({
   handleLogin(event) {
     event.preventDefault();
     const username = this.id.value.trim();
@@ -80,7 +78,7 @@ const LoginFormBase = React.createClass({
   }
 });
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
     login: (username, password) => {
       DataCon.postDataToServer(Url.getUrl('/users/sign_in'), 'POST', {
@@ -89,7 +87,7 @@ const mapDispatchToProps = function (dispatch) {
         localStorage.setItem('snucsesession', data.accessToken);
         const next = sessionStorage.getItem('entrypath') || '/';
         sessionStorage.removeItem('entrypath');
-        dispatch(push(next));
+        ownProps.navigate(next);
       }).catch(err => {
         if (err.status === 403) {
           alertModal(dispatch, '알림', '아이디 혹은 비밀번호를 확인해 주세요.');
@@ -102,7 +100,7 @@ const mapDispatchToProps = function (dispatch) {
   };
 };
 
-const LoginForm = connect(null, mapDispatchToProps)(LoginFormBase);
+const LoginForm = withRouterProps(connect(null, mapDispatchToProps)(LoginFormBase));
 
 const mapStateToProps = function (state) {
   return {

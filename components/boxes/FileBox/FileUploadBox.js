@@ -1,12 +1,12 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 
-const FileForm = React.createClass({
+const FileForm = createReactClass({
   render() {
     return <input type="file" name={this.props.fileId} onChange={this.props.onChange}/>;
   }
 });
 
-const FileDelBox = React.createClass({
+const FileDelBox = createReactClass({
   render() {
     return <button className="file-delete-button" type="button" name={this.props.fileId} onClick={this.props.onClick}>삭제</button>;
   }
@@ -19,7 +19,7 @@ const FileDelBox = React.createClass({
  * - onFileDelete
  */
 
-const FileUploadBox = React.createClass({
+const FileUploadBox = createReactClass({
   getInitialState() {
     return {
       index: 0,

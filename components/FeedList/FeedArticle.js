@@ -1,26 +1,26 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Measure from 'react-measure';
 import moment from 'moment';
 import classnames from 'classnames';
 import BrowserDetection from 'react-browser-detection';
-import {iframeResizer} from 'iframe-resizer';
+import iframeResizer from 'iframe-resizer';
 
 import Realtime from '../Realtime';
 import {WrappedFileBox, DelEditBox, ArticleTagBox, ArticleRecommendBox, ArticleCommentBox} from '../boxes';
 
-const FeedArticle = React.createClass({
+const FeedArticle = createReactClass({
   bindIframeResizer(iframe) {
     function resizedCallback(args) {
       // args: {iframe,height,width,type}
       const {iframe: frame, height} = args;
       frame.style.height = height + 'px';
     }
-    iframeResizer({
+    iframeResizer.iframeResize({
       inPageLinks: true,
-      sizeHeight: true,
-      resizedCallback
+      direction: 'vertical',
+      onResized: resizedCallback
     }, iframe);
   },
 
@@ -126,10 +126,14 @@ const FeedArticle = React.createClass({
           <div className="article-content-container">
             <WrappedFileBox files={article.files}/>
             <DelEditBox mine={mine} articleId={article.id} onArticleDelete={this.handleArticleDelete}/>
-            <Measure onMeasure={this.handleMeasure}>
-              <BrowserDetection once={false}>
-                {contentViewHandler}
-              </BrowserDetection>
+            <Measure bounds onResize={contentRect => this.handleMeasure(contentRect.bounds)}>
+              {({measureRef}) => (
+                <div ref={measureRef}>
+                  <BrowserDetection once={false}>
+                    {contentViewHandler}
+                  </BrowserDetection>
+                </div>
+              )}
             </Measure>
             {ellipsis}
           </div>

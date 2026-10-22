@@ -1,10 +1,11 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 
 import TagBox from './TagBox';
 
-const SearchResultTagBox = React.createClass({
+const SearchResultTagBox = createReactClass({
   propTypes: {
-    searchResultTags: React.PropTypes.array.isRequired
+    searchResultTags: PropTypes.array.isRequired
   },
 
   render() {
