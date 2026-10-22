@@ -1,0 +1,111 @@
+import xoReact from 'eslint-config-xo-react';
+import globals from 'globals';
+
+export default [
+  {
+    ignores: ['docker/**', '.yarn/**', 'package.json', 'index.html']
+  },
+  {
+    space: 2,
+    semicolon: true,
+    prettier: 'compat'
+  },
+  {
+    languageOptions: {
+      globals: globals.browser
+    }
+  },
+  ...xoReact({space: 2, prettier: 'compat'}),
+  {
+    rules: {
+      eqeqeq: 'off',
+      'no-eq-null': 'off',
+      'no-alert': 'warn',
+      '@stylistic/jsx-curly-brace-presence': 'off',
+      '@stylistic/padding-line-between-statements': 'off',
+      'capitalized-comments': 'off',
+      'no-warning-comments': 'off',
+      'import-x/order': 'off',
+      'n/file-extension-in-import': 'off',
+      'import-x/no-useless-path-segments': 'off',
+      'import-x/no-anonymous-default-export': 'off',
+      'import-x/no-unassigned-import': ['error', {allow: ['core-js/shim', 'whatwg-fetch', '**/*.css', '**/*.styl']}],
+      'unicorn/filename-case': 'off',
+      'unicorn/name-replacements': 'off',
+      'unicorn/prefer-export-from': 'off',
+      'unicorn/switch-case-braces': 'off',
+      'unicorn/switch-case-break-position': 'off',
+      'unicorn/catch-error-name': 'off',
+      'unicorn/prefer-early-return': 'off',
+      'unicorn/consistent-boolean-name': 'off',
+      'unicorn/no-computed-property-existence-check': 'off',
+      'unicorn/no-immediate-mutation': 'off',
+      'unicorn/prefer-ternary': 'off',
+      'unicorn/no-lonely-if': 'off',
+      'unicorn/no-declarations-before-early-exit': 'off',
+      'unicorn/prefer-simple-condition-first': 'off',
+      'unicorn/no-useless-logical-operand': 'off',
+      'unicorn/prefer-global-this': 'off',
+      'unicorn/no-array-reduce': 'off',
+      'unicorn/prefer-spread': 'off',
+      'unicorn/no-array-sort': 'off',
+      'unicorn/prefer-number-coercion': 'off',
+      'unicorn/no-anonymous-default-export': 'off',
+      'unicorn/prefer-logical-operator-over-ternary': 'off',
+      'unicorn/prefer-at': 'off',
+      'unicorn/prefer-query-selector': 'off',
+      'unicorn/no-useless-template-literals': 'off',
+      'unicorn/prefer-array-find': 'off',
+      'unicorn/no-nested-ternary': 'off',
+      'unicorn/no-for-loop': 'off',
+      'unicorn/no-new-array': 'off',
+      'unicorn/prefer-location-assign': 'off',
+      'unicorn/no-array-callback-reference': 'off',
+      'unicorn/explicit-length-check': 'off',
+      'unicorn/prefer-string-slice': 'off',
+      'unicorn/prefer-object-iterable-methods': 'off',
+      'unicorn/numeric-separators-style': 'off',
+      'unicorn/single-line-block-comment-style': 'off',
+      'unicorn/prefer-https': 'off',
+      'regexp/no-unused-capturing-group': 'off',
+      'regexp/prefer-named-capture-group': 'off',
+      'regexp/strict': 'off',
+      'regexp/no-useless-escape': 'off',
+      'no-useless-escape': 'off',
+      'regexp/prefer-character-class': 'off',
+      'regexp/prefer-d': 'off',
+      'regexp/sort-character-class-elements': 'off',
+      'regexp/use-ignore-case': 'off',
+      'regexp/prefer-w': 'off',
+      'regexp/no-super-linear-backtracking': 'off',
+      'regexp/no-misleading-capturing-group': 'off',
+      'regexp/optimal-quantifier-concatenation': 'off',
+      'regexp/no-useless-range': 'off',
+      'require-unicode-regexp': 'off',
+      'perfectionist/sort-jsx-props': 'off',
+      'jsx-a11y-x/alt-text': 'off',
+      'jsx-a11y-x/label-has-associated-control': 'off',
+      'jsx-a11y-x/anchor-is-valid': 'off',
+      'jsx-a11y-x/iframe-has-title': 'off',
+      'jsx-a11y-x/no-autofocus': 'off',
+      '@eslint-react/dom-no-missing-button-type': 'off',
+      '@eslint-react/dom-no-dangerously-set-innerhtml': 'off',
+      '@eslint-react/dom-no-render': 'off',
+      '@eslint-react/dom-no-unsafe-iframe-sandbox': 'off',
+      '@eslint-react/no-array-index-key': 'off',
+      'arrow-body-style': 'off',
+      'object-shorthand': 'off',
+      'prefer-destructuring': 'off',
+      'max-params': 'off',
+      'prefer-object-has-own': 'off',
+      'no-lone-blocks': 'off',
+      'unicorn/prefer-module': 'off'
+    }
+  },
+  {
+    files: ['app.js'],
+    rules: {
+      'no-unused-vars': ['error', {varsIgnorePattern: '^React$'}]
+    }
+  }
+];

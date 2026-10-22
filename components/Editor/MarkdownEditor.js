@@ -34,7 +34,7 @@ const MarkdownEditor = React.createClass({
       }
       return;
     }
-    const simplemde = this.simplemde = new SimpleMDE({
+    const simplemde = new SimpleMDE({
       element: ref,
       status: false,
       spellChecker: false,
@@ -42,6 +42,7 @@ const MarkdownEditor = React.createClass({
         singleLineBreaks: false
       }
     });
+    this.simplemde = simplemde;
     if (this.props.value) {
       simplemde.value(this.props.value);
     }

@@ -151,3 +151,12 @@ ENV/
 #############################
 # SNUCSE specific gitignore
 #############################
+
+# Yarn 4
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

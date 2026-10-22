@@ -14,8 +14,8 @@ const FeedArticle = React.createClass({
   bindIframeResizer(iframe) {
     function resizedCallback(args) {
       // args: {iframe,height,width,type}
-      const {iframe, height} = args;
-      iframe.style.height = height + 'px';
+      const {iframe: frame, height} = args;
+      frame.style.height = height + 'px';
     }
     iframeResizer({
       inPageLinks: true,
