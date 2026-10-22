@@ -1,17 +1,18 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {loadComments, loadReplies, setLastComment, writeComment, modifyFoldComments, editComment, deleteComment} from '../../../actions/dispatchers';
 import {CommentRecommendBox} from '../';
 import CommentBox from './CommentBox';
 
-const ArticleCommentBox = React.createClass({
+const ArticleCommentBox = createReactClass({
 
   propTypes: {
-    articleId: React.PropTypes.number.isRequired,
-    lastComment: React.PropTypes.object,
-    commentCount: React.PropTypes.number,
-    isAddable: React.PropTypes.bool
+    articleId: PropTypes.number.isRequired,
+    lastComment: PropTypes.object,
+    commentCount: PropTypes.number,
+    isAddable: PropTypes.bool
   },
 
   renderRecommendBox(comment) {

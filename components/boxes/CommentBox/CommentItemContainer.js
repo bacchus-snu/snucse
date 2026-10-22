@@ -1,26 +1,27 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import CommentList from './CommentList';
 import CommentFormContainer from './CommentFormContainer';
 import CommentItem from './CommentItem';
 
-const CommentItemContainer = React.createClass({
+const CommentItemContainer = createReactClass({
 
   propTypes: {
-    id: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]).isRequired,
-    comment: React.PropTypes.object.isRequired,
-    writer: React.PropTypes.number.isRequired,
-    setLastComment: React.PropTypes.func,
-    modifyFoldComments: React.PropTypes.func,
-    deleteComment: React.PropTypes.func,
-    editComment: React.PropTypes.func,
-    recommendBox: React.PropTypes.element,
-    isChild: React.PropTypes.bool,
-    loadReplies: React.PropTypes.func,
-    repliesInfo: React.PropTypes.object,
-    writeComment: React.PropTypes.func,
-    renderRecommendBox: React.PropTypes.func
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    comment: PropTypes.object.isRequired,
+    writer: PropTypes.number.isRequired,
+    setLastComment: PropTypes.func,
+    modifyFoldComments: PropTypes.func,
+    deleteComment: PropTypes.func,
+    editComment: PropTypes.func,
+    recommendBox: PropTypes.element,
+    isChild: PropTypes.bool,
+    loadReplies: PropTypes.func,
+    repliesInfo: PropTypes.object,
+    writeComment: PropTypes.func,
+    renderRecommendBox: PropTypes.func
   },
 
   componentDidMount() {

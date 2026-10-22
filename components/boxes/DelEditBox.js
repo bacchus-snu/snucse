@@ -1,10 +1,8 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import {connectModals, withRouterProps} from '../../utils';
 
-import {connectModals} from '../../utils';
-
-const DelEditBox = React.createClass({
+const DelEditBox = createReactClass({
   handleArticleUpdate() {
     this.props.updateArticle(this.props.articleId);
   },
@@ -27,10 +25,10 @@ const DelEditBox = React.createClass({
   }
 });
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
-    updateArticle: articleId => dispatch(push(`/${articleId}/edit`))
+    updateArticle: articleId => ownProps.navigate(`/${articleId}/edit`)
   };
 };
 
-export default connectModals(connect(null, mapDispatchToProps)(DelEditBox));
+export default withRouterProps(connectModals(connect(null, mapDispatchToProps)(DelEditBox)));

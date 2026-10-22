@@ -1,12 +1,12 @@
-import React from 'react';
-import {DataCon, Url, connectModals} from '../utils';
+import createReactClass from 'create-react-class';
+import {DataCon, Url, connectModals, withRouterProps} from '../utils';
 import Editor from './Editor';
 
 import {FileBox, FileUploadBox} from './boxes';
 
 import '../stylesheets/article-write.styl';
 
-const ArticleEdit = React.createClass({
+const ArticleEdit = createReactClass({
   loadArticleFromServer() {
     const {articleId} = this.props.match.params;
     const url = Url.getUrl(`/articles/${articleId}`);
@@ -123,7 +123,7 @@ const ArticleEdit = React.createClass({
       files
     });
     this.setState({title: '', content: '', renderingMode: 'text'});
-    this.props.history.goBack();
+    this.props.navigate(-1);
   },
 
   render() {
@@ -134,7 +134,7 @@ const ArticleEdit = React.createClass({
 
     if (this.state.valid === false) {
       this.props.alertModal('알림', '권한이 없습니다.', () => {
-        this.props.history.goBack();
+        this.props.navigate(-1);
       });
       return null;
     }
@@ -167,4 +167,4 @@ const ArticleEdit = React.createClass({
   }
 });
 
-export default connectModals(ArticleEdit);
+export default withRouterProps(connectModals(ArticleEdit));

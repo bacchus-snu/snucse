@@ -1,17 +1,18 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {loadProfileComments, loadProfileCommentReplies, setLastProfileComment, writeProfileComment, modifyFoldProfileComments, editProfileComment, deleteProfileComment} from '../../../actions/dispatchers';
 import {ProfileCommentRecommendBox} from '../';
 import CommentBox from './CommentBox';
 
-const ProfileCommentBox = React.createClass({
+const ProfileCommentBox = createReactClass({
 
   propTypes: {
-    profileId: React.PropTypes.string.isRequired,
-    lastComment: React.PropTypes.object,
-    commentCount: React.PropTypes.number,
-    isAddable: React.PropTypes.bool
+    profileId: PropTypes.string.isRequired,
+    lastComment: PropTypes.object,
+    commentCount: PropTypes.number,
+    isAddable: PropTypes.bool
   },
 
   renderRecommendBox(comment) {

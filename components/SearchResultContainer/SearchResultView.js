@@ -1,4 +1,4 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 
 import SearchForm from './SearchForm';
 import OverallSearchResultView from './OverallSearchResultView';
@@ -7,7 +7,7 @@ import CommentSearchResultView from './CommentSearchResultView';
 import ProfileSearchResultView from './ProfileSearchResultView';
 import TagSearchResultView from './TagSearchResultView';
 
-const SearchResultView = React.createClass({
+const SearchResultView = createReactClass({
   render() {
     const {category, query, page, result} = this.props;
     let SearchResultSection;

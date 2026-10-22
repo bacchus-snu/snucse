@@ -1,5 +1,3 @@
-import {goBack} from 'react-router-redux';
-
 import {DataCon, Url} from '../../utils';
 import * as types from '../actionTypes';
 import {alertModal} from './modalDispatchers';
@@ -68,7 +66,7 @@ export function deleteTagFromProfile(dispatch, profileId, tagName) {
   }).catch(console.error);
 }
 
-export function loadTagInformation(dispatch, tagName) {
+export function loadTagInformation(dispatch, tagName, onError) {
   if (tagName) {
     dispatch({
       type: types.RESET_TAG_INFORMATION
@@ -84,14 +82,10 @@ export function loadTagInformation(dispatch, tagName) {
         type: types.LOAD_TAG_INFORMATION,
         tagInformation: null
       });
-      alertModal(dispatch, '알림', '존재하지 않는 태그입니다.', () => {
-        dispatch(goBack());
-      });
+      alertModal(dispatch, '알림', '존재하지 않는 태그입니다.', onError);
     });
   } else {
-    alertModal(dispatch, '알림', '정상적이지 않은 접근입니다.', () => {
-      dispatch(goBack());
-    });
+    alertModal(dispatch, '알림', '정상적이지 않은 접근입니다.', onError);
   }
 }
 

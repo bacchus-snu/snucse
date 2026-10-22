@@ -1,13 +1,10 @@
 // Map, Set과 String.prototype.includes 등을 사용할 수 있게 함
-import 'core-js/shim';
+import 'core-js/stable';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Route, Switch} from 'react-router';
-import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {createRoot} from 'react-dom/client';
+import {BrowserRouter, Navigate, Outlet, Route, Routes} from 'react-router-dom';
+import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
-import {ConnectedRouter, routerReducer, routerMiddleware} from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
 
 import './stylesheets/reset.css';
 import './stylesheets/common.styl';
@@ -37,53 +34,43 @@ import {
 import reducers from './reducers';
 
 const rootElement = document.getElementById('content');
-const history = createHistory();
-const middleware = routerMiddleware(history);
+const store = createStore(combineReducers(reducers));
 
-const store = createStore(
-  combineReducers({...reducers, routerReducer}),
-  applyMiddleware(middleware)
-);
+function MenuLayout() {
+  return (
+    <Menu>
+      <Outlet/>
+    </Menu>
+  );
+}
 
-const ProfileRoute = ({match}) => (
-  <Switch>
-    <Route exact path={`${match.url}`} component={ProfileList}/>
-    <Route path={`${match.url}/new`} component={ProfileMake}/>
-    <Route path={`${match.url}/:id/admin`} component={ProfileAdmin}/>
-    <Route path={`${match.url}/:id/transfer_admin`} component={ProfileAdminTransfer}/>
-    <Route path={`${match.url}/:id/write`} component={ArticleWrite}/>
-  </Switch>
-);
-
-const MenuRoute = () => (
-  <Menu>
-    <Switch>
-      <Route exact path="/" component={Main}/>
-      <Route path="/message" component={Message}/>
-      <Route path="/others" component={Others}/>
-      <Route path="/profiles" component={ProfileRoute}/>
-      <Route path="/search" component={SearchResult}/>
-      <Route path="/settings" component={Settings}/>
-      <Route path="/tags" component={TagInfo}/>
-      <Route path="/activities" component={Activity}/>
-      <Route path="/:articleId/edit" component={ArticleEdit}/>
-      <Route exact path="/:id" component={ClassManager}/>
-    </Switch>
-  </Menu>
-);
-
-ReactDOM.render(
+createRoot(rootElement).render(
   <Provider store={store}>
     <TimeManager>
-      <ConnectedRouter history={history}>
-        <Switch>
-          <Route path="/login" component={Login}/>
-          <Route path="/sign-up" component={SignUp}/>
-          <Route path="/privacy-consent" component={PrivacyConsent}/>
-          <Route path="/" component={MenuRoute}/>
-        </Switch>
-      </ConnectedRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/sign-up" element={<SignUp/>}/>
+          <Route path="/privacy-consent" element={<PrivacyConsent/>}/>
+          <Route element={<MenuLayout/>}>
+            <Route path="/" element={<Main/>}/>
+            <Route path="/message" element={<Message/>}/>
+            <Route path="/others" element={<Others/>}/>
+            <Route path="/profiles" element={<ProfileList/>}/>
+            <Route path="/profiles/new" element={<ProfileMake/>}/>
+            <Route path="/profiles/:id/admin" element={<ProfileAdmin/>}/>
+            <Route path="/profiles/:id/transfer_admin" element={<ProfileAdminTransfer/>}/>
+            <Route path="/profiles/:id/write" element={<ArticleWrite/>}/>
+            <Route path="/search" element={<SearchResult/>}/>
+            <Route path="/settings" element={<Settings/>}/>
+            <Route path="/tags" element={<TagInfo/>}/>
+            <Route path="/activities" element={<Activity/>}/>
+            <Route path="/:articleId/edit" element={<ArticleEdit/>}/>
+            <Route path="/:id" element={<ClassManager/>}/>
+          </Route>
+          <Route path="*" element={<Navigate to="/" replace/>}/>
+        </Routes>
+      </BrowserRouter>
     </TimeManager>
-  </Provider>,
-  rootElement
+  </Provider>
 );

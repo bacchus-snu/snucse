@@ -1,13 +1,14 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import {genRefCallback} from '../../../utils';
 
-const CommentForm = React.createClass({
+const CommentForm = createReactClass({
 
   propTypes: {
-    onWrite: React.PropTypes.func.isRequired,
-    isChild: React.PropTypes.bool
+    onWrite: PropTypes.func.isRequired,
+    isChild: PropTypes.bool
   },
 
   handleSubmit(event) {

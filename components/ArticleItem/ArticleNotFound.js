@@ -1,6 +1,6 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 
-const ArticleNotFound = React.createClass({
+const ArticleNotFound = createReactClass({
   render() {
     return (
       <div className="article-404">

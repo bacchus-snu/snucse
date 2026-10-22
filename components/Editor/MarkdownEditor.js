@@ -1,10 +1,10 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import SimpleMDE from 'simplemde';
 
 import 'simplemde/dist/simplemde.min.css';
 import '../../stylesheets/markdown-editor.styl';
 
-const MarkdownEditor = React.createClass({
+const MarkdownEditor = createReactClass({
   getInitialState() {
     return {
       value: ''

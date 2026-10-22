@@ -1,11 +1,11 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
 import {loadTagInformation} from '../../actions/dispatchers';
-import {UserLevel} from '../../utils';
+import {UserLevel, withRouterProps} from '../../utils';
 import TagViewWrapper from './TagViewWrapper';
 
-const TagContainer = React.createClass({
+const TagContainer = createReactClass({
   componentDidMount() {
     if (this.props.userLevel === UserLevel.REGULAR) {
       this.props.loadTagInformation(this.props.tagName);
@@ -41,10 +41,10 @@ const mapStateToProps = function (state) {
   };
 };
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
-    loadTagInformation: tagName => loadTagInformation(dispatch, tagName)
+    loadTagInformation: tagName => loadTagInformation(dispatch, tagName, () => ownProps.navigate(-1))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TagContainer);
+export default withRouterProps(connect(mapStateToProps, mapDispatchToProps)(TagContainer));

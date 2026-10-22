@@ -1,12 +1,12 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 import {connect} from 'react-redux';
 
-import {DataCon, Url, genRefCallback, connectModals} from '../utils';
+import {DataCon, Url, genRefCallback, connectModals, withRouterProps} from '../utils';
 import Modal from './Modal';
 
 import '../stylesheets/login.styl';
 
-const SignUp = React.createClass({
+const SignUp = createReactClass({
   render() {
     const modal = this.props.modalEnabled ? <Modal/> : null;
     return (
@@ -42,7 +42,7 @@ const birthReg = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
 const bsNumReg = /^[0-9]{4}-[0-9]{5}$/;
 const phoneNumReg = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/;
 
-const SignUpForm = connectModals(React.createClass({
+const SignUpForm = connectModals(createReactClass({
   handleSignUp(e) {
     e.preventDefault();
     const values = this.validateForm();
@@ -53,7 +53,7 @@ const SignUpForm = connectModals(React.createClass({
     DataCon.postDataToServer(Url.getUrl('/users/sign_up'), 'POST', values)
       .then(() => {
         this.props.alertModal('알림', '가입에 성공하였습니다.');
-        this.props.history.push('/login');
+        this.props.navigate('/login');
       }).catch(() => {
         // TODO: 에러 발생 조건에 뭐가 있는지 확인하기
         this.props.alertModal('알림', '가입에 실패했습니다.');
@@ -172,4 +172,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(SignUp);
+export default withRouterProps(connect(mapStateToProps)(SignUp));

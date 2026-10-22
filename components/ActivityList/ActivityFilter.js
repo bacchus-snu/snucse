@@ -1,9 +1,9 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
 import classnames from 'classnames';
 
-import {DataCon, Url, genRefCallback} from '../../utils';
+import {DataCon, Url, genRefCallback, withRouterProps} from '../../utils';
 
 const filters = [
   {
@@ -61,12 +61,12 @@ const mapping = {
   update: '수정'
 };
 
-const MainCategoryItem = React.createClass({
+const MainCategoryItem = createReactClass({
 
   propTypes: {
-    onClickMainCategory: React.PropTypes.func.isRequired,
-    isSelected: React.PropTypes.bool,
-    filter: React.PropTypes.object
+    onClickMainCategory: PropTypes.func.isRequired,
+    isSelected: PropTypes.bool,
+    filter: PropTypes.object
   },
 
   handleClickItem() {
@@ -89,12 +89,12 @@ const MainCategoryItem = React.createClass({
   }
 });
 
-const SubCategoryItem = React.createClass({
+const SubCategoryItem = createReactClass({
 
   propTypes: {
-    onClickSubCategory: React.PropTypes.func.isRequired,
-    isSelected: React.PropTypes.bool,
-    action: React.PropTypes.string
+    onClickSubCategory: PropTypes.func.isRequired,
+    isSelected: PropTypes.bool,
+    action: PropTypes.string
   },
 
   handleClickItem() {
@@ -117,11 +117,11 @@ const SubCategoryItem = React.createClass({
   }
 });
 
-const CandidateProfileItem = React.createClass({
+const CandidateProfileItem = createReactClass({
 
   propTypes: {
-    onClickCandidateProfile: React.PropTypes.func,
-    profile: React.PropTypes.object
+    onClickCandidateProfile: PropTypes.func,
+    profile: PropTypes.object
   },
 
   handleClickCandidateProfile() {
@@ -137,12 +137,12 @@ const CandidateProfileItem = React.createClass({
   }
 });
 
-const ActivityFilter = React.createClass({
+const ActivityFilter = createReactClass({
 
   propTypes: {
-    candidateProfiles: React.PropTypes.array,
-    searchProfile: React.PropTypes.func,
-    query: React.PropTypes.object.isRequired
+    candidateProfiles: PropTypes.array,
+    searchProfile: PropTypes.func,
+    query: PropTypes.object.isRequired
   },
 
   getInitialState() {
@@ -377,7 +377,7 @@ const ActivityFilter = React.createClass({
   }
 });
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
     pushHistory: params => {
       const paramsString = Object.entries(params).filter(([key, value]) => {
@@ -385,9 +385,9 @@ const mapDispatchToProps = function (dispatch) {
       }).map(([key, value]) => {
         return `${key}=${value}`;
       }).join('&');
-      dispatch(push(`/activities?${paramsString}`));
+      ownProps.navigate(`/activities?${paramsString}`);
     }
   };
 };
 
-export default connect(null, mapDispatchToProps)(ActivityFilter);
+export default withRouterProps(connect(null, mapDispatchToProps)(ActivityFilter));

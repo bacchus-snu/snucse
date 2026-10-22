@@ -82,7 +82,7 @@ module.exports = (env, argv) => {
             options: {
               presets: [
                 ['@babel/preset-env', {modules: false}],
-                ['@babel/preset-react', {runtime: 'classic'}]
+                ['@babel/preset-react', {runtime: 'automatic', development: !isProduction}]
               ]
             }
           }

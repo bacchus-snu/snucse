@@ -1,4 +1,5 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {UserLevel} from '../../../utils';
@@ -10,9 +11,9 @@ import {
 } from '../../../actions/dispatchers';
 import TagBox from './TagBox';
 
-const ProfileTagBox = React.createClass({
+const ProfileTagBox = createReactClass({
   propTypes: {
-    profileId: React.PropTypes.string.isRequired
+    profileId: PropTypes.string.isRequired
   },
 
   getTagFormId() {

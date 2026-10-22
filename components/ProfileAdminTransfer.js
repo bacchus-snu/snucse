@@ -1,11 +1,12 @@
-import React from 'react';
+import createReactClass from 'create-react-class';
 
 import {ProfileAdminTransferBox} from './boxes';
+import {withRouterProps} from '../utils';
 
-const ProfileAdminTransfer = React.createClass({
+const ProfileAdminTransfer = createReactClass({
   render() {
     return <ProfileAdminTransferBox id={this.props.match.params.id}/>;
   }
 });
 
-export default ProfileAdminTransfer;
+export default withRouterProps(ProfileAdminTransfer);
