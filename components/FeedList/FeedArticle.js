@@ -12,12 +12,22 @@ import {WrappedFileBox, DelEditBox, ArticleTagBox, ArticleRecommendBox, ArticleC
 
 const FeedArticle = createReactClass({
   bindIframeResizer(iframe) {
+    if (!iframe) {
+      for (const resizer of this._iframeResizers || []) {
+        if (resizer.disconnect) {
+          resizer.disconnect();
+        }
+      }
+      this._iframeResizers = null;
+      return;
+    }
+
     function resizedCallback(args) {
       // args: {iframe,height,width,type}
       const {iframe: frame, height} = args;
       frame.style.height = height + 'px';
     }
-    iframeResizer.iframeResize({
+    this._iframeResizers = iframeResizer.iframeResize({
       inPageLinks: true,
       direction: 'vertical',
       onResized: resizedCallback
