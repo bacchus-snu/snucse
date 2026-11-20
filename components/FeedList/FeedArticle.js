@@ -5,6 +5,7 @@ import Measure from 'react-measure';
 import moment from 'moment';
 import classnames from 'classnames';
 import BrowserDetection from 'react-browser-detection';
+import DOMPurify from 'dompurify';
 
 import Realtime from '../Realtime';
 import {WrappedFileBox, DelEditBox, ArticleTagBox, ArticleRecommendBox, ArticleCommentBox} from '../boxes';
@@ -86,7 +87,7 @@ const FeedArticle = createReactClass({
     const iframeNotSupportContentView = (
       <div
         className={classname}
-        dangerouslySetInnerHTML={{__html: article.feedContent}}
+        dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(article.feedContent)}}
         />
     );
     const defaultFeedCSS = `
@@ -111,8 +112,8 @@ const FeedArticle = createReactClass({
         <iframe
           width="100%"
           onLoad={this.handleIframeLoad}
-          sandbox={"allow-scripts allow-same-origin allow-forms allow-top-navigation"}
-          srcDoc={defaultFeedCSS + article.renderedContent}
+          sandbox="allow-same-origin allow-top-navigation-by-user-activation"
+          srcDoc={defaultFeedCSS + DOMPurify.sanitize(article.renderedContent)}
           />
       </div>
     );

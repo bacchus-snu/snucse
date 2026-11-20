@@ -1,7 +1,7 @@
 import createReactClass from 'create-react-class';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import InnerHTML from 'dangerously-set-inner-html';
+import DOMPurify from 'dompurify';
 import classnames from 'classnames';
 
 import {updateFollowingList, clearProfileDetail, loadProfileDetail, updateFollowingState} from '../actions/dispatchers';
@@ -90,7 +90,7 @@ const Profile = createReactClass({
     );
     const profileMain = this.state.isFolded ? null : (
       <div id="profile-main">
-        <InnerHTML id="profile-description" html={renderedDescription}/>
+        <div id="profile-description" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(renderedDescription)}}/>
         <ProfileTagBox profileId={id}/>
         <ProfileCommentBox
           profileId={id}

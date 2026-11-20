@@ -13,6 +13,8 @@ RUN node .yarn/releases/yarn-4.18.1.cjs run build
 
 FROM caddy:2
 
+RUN apk upgrade --no-cache
+
 WORKDIR /app
 
 COPY --from=builder /app/dist/ /app/

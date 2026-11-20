@@ -2,7 +2,7 @@ import createReactClass from 'create-react-class';
 import moment from 'moment';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import InnerHTML from 'dangerously-set-inner-html';
+import DOMPurify from 'dompurify';
 
 import Realtime from '../Realtime';
 import {Url, DataCon, withRouterProps} from '../../utils';
@@ -41,7 +41,7 @@ const ArticleItem = createReactClass({
             <WrappedFileBox files={article.files}/>
             <DelEditBox mine={mine} articleId={article.id} onArticleDelete={this.handleArticleDelete}/>
             <div className="article-content">
-              <InnerHTML html={article.renderedContent}/>
+              <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(article.renderedContent)}}/>
             </div>
           </div>
         </div>

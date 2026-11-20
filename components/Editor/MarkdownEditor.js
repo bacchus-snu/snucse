@@ -1,7 +1,8 @@
 import createReactClass from 'create-react-class';
-import SimpleMDE from 'simplemde';
+import EasyMDE from 'easymde';
+import DOMPurify from 'dompurify';
 
-import 'simplemde/dist/simplemde.min.css';
+import 'easymde/dist/easymde.min.css';
 import '../../stylesheets/markdown-editor.styl';
 
 const MarkdownEditor = createReactClass({
@@ -34,12 +35,13 @@ const MarkdownEditor = createReactClass({
       }
       return;
     }
-    const simplemde = new SimpleMDE({
+    const simplemde = new EasyMDE({
       element: ref,
       status: false,
       spellChecker: false,
       renderingConfig: {
-        singleLineBreaks: false
+        singleLineBreaks: false,
+        sanitizerFunction: html => DOMPurify.sanitize(html)
       }
     });
     this.simplemde = simplemde;
